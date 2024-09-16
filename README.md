@@ -6,4 +6,4 @@ My first game!!
 Started on 27/01/2024
 
 ## Lost Spells
- A 2D Rougue like made with Godot Engine 
+ A 2D Rougue like centered around spells made with Godot Engine 4.3
