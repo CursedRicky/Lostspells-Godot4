@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhd6o2edhsnvk"
+path="res://.godot/imported/thunder.mp3-b0bbc4c3a567790e6c4763286b51b88b.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Spells/thunder.mp3"
+dest_files=["res://.godot/imported/thunder.mp3-b0bbc4c3a567790e6c4763286b51b88b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

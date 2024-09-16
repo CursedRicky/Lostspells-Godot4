@@ -1,0 +1,1 @@
+Automatic climb animation makes the character climb the whole ladder without the need of programming for the movement.

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bufgi4885o5bh"]
+
+[ext_resource type="Script" path="res://spellsEffects/holyDart.gd" id="1_r6heu"]
+[ext_resource type="Texture2D" uid="uid://bvobx5wk8b7df" path="res://UI/spellInventory/spells/spellsIcon/holyArrow.png" id="2_uvba8"]
+
+[resource]
+script = ExtResource("1_r6heu")
+name = "Holy Arrow"
+damageDescription = "base damage: 50"
+buff0 = ""
+buff1 = ""
+texture = ExtResource("2_uvba8")
+cd = 8
+rarity = 4
+manaCost = 25
+healtCost = 0
+isAHealing = false

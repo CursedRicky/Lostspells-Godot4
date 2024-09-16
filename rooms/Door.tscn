@@ -1,0 +1,201 @@
+[gd_scene load_steps=30 format=3 uid="uid://b2e6olw73760j"]
+
+[ext_resource type="Texture2D" uid="uid://btjs4s2751cmh" path="res://dungeon/doorOpenClosed.png" id="1_auosi"]
+[ext_resource type="Script" path="res://rooms/Door.gd" id="1_mwu43"]
+[ext_resource type="Texture2D" uid="uid://b17a485v4tw52" path="res://dungeon/doorStone.png" id="2_6uyww"]
+[ext_resource type="Texture2D" uid="uid://oll8ornedf61" path="res://dungeon/door.png" id="2_nodg8"]
+[ext_resource type="Texture2D" uid="uid://bw2r4htbed0pc" path="res://dungeon/doorOpenClosed - Copy.png" id="3_s3nhv"]
+[ext_resource type="Texture2D" uid="uid://nrrb4dli31fg" path="res://dungeon/doorStoneUp.png" id="6_xx6p1"]
+[ext_resource type="AudioStream" uid="uid://3oo4b250gdxu" path="res://art/Music and Sounds/lock.wav" id="7_cu8ed"]
+[ext_resource type="AudioStream" uid="uid://dhpvx4gug5jnr" path="res://art/Music and Sounds/open.wav" id="8_j7i0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e81s"]
+atlas = ExtResource("3_s3nhv")
+region = Rect2(0, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxtu4"]
+atlas = ExtResource("1_auosi")
+region = Rect2(32, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40trs"]
+atlas = ExtResource("3_s3nhv")
+region = Rect2(32, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3mv8"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(0, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bewgo"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(32, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjace"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(64, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcjqp"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(96, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpaiq"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(128, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f8eb"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(160, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spbg5"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(192, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3un6b"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(224, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn0bo"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(256, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ili1i"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(288, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16w3c"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(320, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwr6k"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(352, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wmp7"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(384, 0, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s0jt"]
+atlas = ExtResource("2_nodg8")
+region = Rect2(416, 0, 32, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4ou2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e81s")
+}],
+"loop": false,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxtu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40trs")
+}],
+"loop": false,
+"name": &"Opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3mv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bewgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjace")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcjqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpaiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f8eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spbg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3un6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn0bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ili1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16w3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwr6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wmp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s0jt")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l1m1"]
+size = Vector2(32, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcsd"]
+size = Vector2(62, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vd80"]
+size = Vector2(6, 12)
+
+[node name="Door" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_mwu43")
+
+[node name="DoorStone" type="Sprite2D" parent="."]
+texture = ExtResource("2_6uyww")
+
+[node name="Door" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v4ou2")
+animation = &"Closed"
+autoplay = "Closed"
+
+[node name="DoorStone2" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("6_xx6p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_3l1m1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 31)
+shape = SubResource("RectangleShape2D_fjcsd")
+debug_color = Color(0.830315, 0.243694, 0.766913, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-13, -4)
+shape = SubResource("RectangleShape2D_1vd80")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(13, -4)
+shape = SubResource("RectangleShape2D_1vd80")
+
+[node name="Lock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cu8ed")
+
+[node name="Open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_j7i0p")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,3 @@
+Water waves are meant to be used in places with shallow water, like lakes.
+
+Ocean water waves should be used in off-limit places, like a ocean.

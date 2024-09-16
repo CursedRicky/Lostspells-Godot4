@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=3 format=3 uid="uid://bxkyo0tqnyykc"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spell.gd" id="1_br0pb"]
+[ext_resource type="Texture2D" uid="uid://dvrgar52sif4q" path="res://UI/spellInventory/spells/spellsIcon/blackHole.png" id="2_7aw4b"]
+
+[resource]
+script = ExtResource("1_br0pb")
+name = "blackHole"
+texture = ExtResource("2_7aw4b")
+cd = 0
+manaCost = 10
+healtCost = 0
+isAHealing = false

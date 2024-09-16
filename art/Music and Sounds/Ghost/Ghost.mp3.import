@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6ypvv0j6mbke"
+path="res://.godot/imported/Ghost.mp3-e8a30a9d54a78f100f152f2ea1629538.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Ghost/Ghost.mp3"
+dest_files=["res://.godot/imported/Ghost.mp3-e8a30a9d54a78f100f152f2ea1629538.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

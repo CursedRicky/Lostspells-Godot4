@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=3 format=3 uid="uid://dfs34upqbm7uk"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spell.gd" id="1_qjhj2"]
+[ext_resource type="Texture2D" uid="uid://dvj4lv47f40gc" path="res://UI/spellInventory/spells/spellsIcon/freeze.png" id="2_x8jxs"]
+
+[resource]
+script = ExtResource("1_qjhj2")
+name = "freeze"
+texture = ExtResource("2_x8jxs")

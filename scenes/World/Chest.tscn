@@ -1,0 +1,210 @@
+[gd_scene load_steps=22 format=3 uid="uid://c6g12kvhd5owi"]
+
+[ext_resource type="Script" path="res://script/World/Chest.gd" id="1_88y3g"]
+[ext_resource type="PackedScene" uid="uid://bgbreittsjwu1" path="res://scenes/Items/healtPotionItem.tscn" id="2_ntbe1"]
+[ext_resource type="Texture2D" uid="uid://sy0r6tr3i48h" path="res://dungeon/Objects and buildings/Animated sprites/Animated Chest/chest_opening.png" id="3_6rdnj"]
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="4_3un0a"]
+[ext_resource type="Texture2D" uid="uid://dpqeg5l0shcvh" path="res://art/Shadows/LargeShadow.png" id="4_gr8iq"]
+[ext_resource type="AudioStream" uid="uid://bmkp6if6nfu40" path="res://art/Music and Sounds/519630__mrthenoronha__open-treasure-chest-8-bit.wav" id="6_her8f"]
+
+[sub_resource type="Animation" id="Animation_m536e"]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_epjlg"]
+resource_name = "IdleLottata"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_qcgsn"]
+resource_name = "Opening"
+length = 2.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"giveItemsToPlayer"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4nies"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_otoih"]
+_data = {
+"Idle": SubResource("Animation_m536e"),
+"IdleLottata": SubResource("Animation_epjlg"),
+"Opening": SubResource("Animation_qcgsn"),
+"RESET": SubResource("Animation_4nies")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_proms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nvvf"]
+size = Vector2(19.0388, 14.342)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ag5nk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_apbb8"]
+animation = &"IdleLottata"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_phint"]
+animation = &"Opening"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mwnk4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fegfy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cq4cc"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_iddo0"]
+states/End/position = Vector2(948, 100)
+states/Idle/node = SubResource("AnimationNodeAnimation_ag5nk")
+states/Idle/position = Vector2(440, 100)
+states/IdleLottata/node = SubResource("AnimationNodeAnimation_apbb8")
+states/IdleLottata/position = Vector2(797, 100)
+states/Opening/node = SubResource("AnimationNodeAnimation_phint")
+states/Opening/position = Vector2(628, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mwnk4"), "Idle", "Opening", SubResource("AnimationNodeStateMachineTransition_fegfy"), "Opening", "IdleLottata", SubResource("AnimationNodeStateMachineTransition_cq4cc")]
+graph_offset = Vector2(188, -28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tkhf"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_88y3g")
+lootTableScene = ExtResource("2_ntbe1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_otoih")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_proms")
+texture = ExtResource("3_6rdnj")
+hframes = 9
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(0, 4)
+scale = Vector2(1.47068, 1.39451)
+shape = SubResource("RectangleShape2D_7nvvf")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_iddo0")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6tkhf")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 10
+offset_left = -112.0
+offset_top = -32.0
+offset_right = 118.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("4_3un0a")
+text = "[INVIO] per aprire"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 13)
+texture = ExtResource("4_gr8iq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_her8f")
+volume_db = -8.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

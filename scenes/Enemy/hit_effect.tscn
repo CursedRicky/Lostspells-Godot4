@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://nqs1llfvhci2"]
+
+[ext_resource type="Texture2D" uid="uid://b3ow7flsnua2r" path="res://art/Effects/HitEffect.png" id="1_gh2wx"]
+[ext_resource type="Script" path="res://script/Enemy/Death/Effect.gd" id="2_noby0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x1re"]
+atlas = ExtResource("1_gh2wx")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7k7d"]
+atlas = ExtResource("1_gh2wx")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7udvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x1re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7k7d")
+}],
+"loop": false,
+"name": &"Animate",
+"speed": 10.0
+}]
+
+[node name="HitEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7udvw")
+animation = &"Animate"
+script = ExtResource("2_noby0")

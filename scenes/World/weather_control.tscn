@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1obrii3nhtg0"]
+
+[ext_resource type="Texture2D" uid="uid://cgrwjtqajextu" path="res://art/Wheater/rain.png" id="1_jup5u"]
+[ext_resource type="Script" path="res://script/World/Weather.gd" id="1_qohbd"]
+[ext_resource type="Texture2D" uid="uid://bmowsfs67ne6x" path="res://art/Wheater/snow.png" id="2_menqv"]
+[ext_resource type="AudioStream" uid="uid://dq6j8moqac1a6" path="res://art/Music and Sounds/rain.mp3" id="4_ry185"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0tx8w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 100, 1)
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Animation" id="Animation_kda31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rain:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_805er"]
+resource_name = "toRain"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rain:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ltm"]
+_data = {
+"RESET": SubResource("Animation_kda31"),
+"toRain": SubResource("Animation_805er")
+}
+
+[node name="weatherControl" type="Node2D"]
+script = ExtResource("1_qohbd")
+
+[node name="rainColor" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.741176, 0.741176, 0.741176, 0.898039)
+
+[node name="rain" type="GPUParticles2D" parent="."]
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_0tx8w")
+texture = ExtResource("1_jup5u")
+speed_scale = 1.2
+randomness = 1.0
+trail_lifetime = 7.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1800.0
+one_shot = true
+autostart = true
+
+[node name="snow" type="GPUParticles2D" parent="."]
+visible = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_0tx8w")
+texture = ExtResource("2_menqv")
+speed_scale = 0.5
+randomness = 1.0
+trail_lifetime = 7.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h0ltm")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ry185")
+volume_db = -20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

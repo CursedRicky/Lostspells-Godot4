@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://yvy45oryk6fp"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/hotbarSlot.gd" id="1_dbupi"]
+[ext_resource type="Texture2D" uid="uid://d24qq7nai5wak" path="res://UI/spellInventory/bg_inventory.png" id="2_5sw1q"]
+[ext_resource type="Texture2D" uid="uid://db2kuo071rftt" path="res://UI/spellInventory/inventory_selected.png" id="3_0yff5"]
+[ext_resource type="PackedScene" uid="uid://hspbcjei5b8s" path="res://UI/spellInventory/itemStackGui.tscn" id="3_untp5"]
+[ext_resource type="Texture2D" uid="uid://b1v4q1tway3jx" path="res://UI/spellInventory/spells/spellsIcon/cd.png" id="5_5067p"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="6_2dkir"]
+
+[node name="Slot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_dbupi")
+
+[node name="Under" type="Sprite2D" parent="."]
+texture = ExtResource("2_5sw1q")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("3_untp5")]
+layout_mode = 2
+
+[node name="Upper" type="Sprite2D" parent="."]
+texture = ExtResource("3_0yff5")
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CD" type="TextureProgressBar" parent="."]
+self_modulate = Color(0.051971, 0.051971, 0.051971, 0.796078)
+layout_mode = 0
+offset_left = 4.28572
+offset_top = 4.28571
+offset_right = 44.2857
+offset_bottom = 44.2857
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("5_5067p")
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_top = 7.14286
+offset_right = 40.0
+offset_bottom = 30.1429
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("6_2dkir")
+text = "1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

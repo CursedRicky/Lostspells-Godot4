@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjfpb6axasp7y"]
+
+[ext_resource type="Script" path="res://world/bush.gd" id="1_sguaq"]
+[ext_resource type="PackedScene" uid="uid://8mk0il1s3w4j" path="res://scenes/Box/New/hurt_box.tscn" id="2_hxnui"]
+[ext_resource type="Shader" path="res://art/Shader/bush.gdshader" id="3_1iajl"]
+[ext_resource type="Texture2D" uid="uid://dy38rhmast2ca" path="res://art/World/Tiles/Vegetation/Bush/spr_bush_breaking.png" id="3_a86yd"]
+[ext_resource type="Texture2D" uid="uid://bn6emhoi6imf2" path="res://art/World/Tiles/Vegetation/Bush/spr_bush.png" id="4_deu4r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ggom"]
+radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lu45e"]
+shader = ExtResource("3_1iajl")
+shader_parameter/amplitude = 0.182
+shader_parameter/frequency = 2.0
+shader_parameter/speed = 1.117
+shader_parameter/enable_sway_x = false
+shader_parameter/sway_x_amplitude = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6h8p"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhw0d"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivqti"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn1ot"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y06e6"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oclav"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pls"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1y15"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uyou"]
+atlas = ExtResource("3_a86yd")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps7l6"]
+atlas = ExtResource("4_deu4r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgv6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6h8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhw0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivqti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn1ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y06e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oclav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1y15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uyou")
+}],
+"loop": false,
+"name": &"breaking",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps7l6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bush" type="Node2D"]
+script = ExtResource("1_sguaq")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_hxnui")]
+position = Vector2(0, -5)
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_4ggom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_lu45e")
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_rgv6m")
+autoplay = "default"
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

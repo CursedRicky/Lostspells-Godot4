@@ -1,0 +1,450 @@
+[gd_scene load_steps=35 format=3 uid="uid://dq6bk3oxujsc4"]
+
+[ext_resource type="Script" path="res://UI/Script/MainUI.gd" id="1_dtfuy"]
+[ext_resource type="Shader" path="res://art/Shader/fuego2.gdshader" id="2_4wkj4"]
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="2_fxffu"]
+[ext_resource type="Texture2D" uid="uid://bacmxrdkg20ym" path="res://art/pxArt.png" id="2_x6dc2"]
+[ext_resource type="Theme" uid="uid://c80kv5l6igkno" path="res://UI/FantasyTheme.tres" id="3_g2org"]
+[ext_resource type="Shader" path="res://art/Shader/fuego.gdshader" id="3_tmxys"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="4_5xxfs"]
+[ext_resource type="Texture2D" uid="uid://b50r056kltenr" path="res://player/Front animations/spr_player_front_idle.png" id="5_w4mrl"]
+[ext_resource type="Texture2D" uid="uid://b2huoxaorr4ud" path="res://art/cape.png" id="7_chju3"]
+[ext_resource type="AudioStream" uid="uid://8bxdhna684ad" path="res://music/selectionSound.mp3" id="7_d8vng"]
+[ext_resource type="AudioStream" uid="uid://dsfy3xfbmpjwf" path="res://music/mainScreen.mp3" id="8_4loa8"]
+[ext_resource type="Texture2D" uid="uid://djxarmdbmtyh3" path="res://art/RunicBookIG.png" id="8_rp0gc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_efdfk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bymu2"]
+width = 600
+height = 400
+seamless = true
+noise = SubResource("FastNoiseLite_efdfk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lxhs7"]
+shader = ExtResource("2_4wkj4")
+shader_parameter/yoffset = 0.5
+shader_parameter/animation_speed = 0.4
+shader_parameter/flame_color = Color(0.41068, 0.638884, 0.849148, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bymu2")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gj2xl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3kb1x"]
+width = 600
+height = 300
+seamless = true
+noise = SubResource("FastNoiseLite_gj2xl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xvm4l"]
+shader = ExtResource("3_tmxys")
+shader_parameter/yoffset = 0.4
+shader_parameter/animation_speed = 0.4
+shader_parameter/flame_color = Color(0.316929, 0.560454, 0.999998, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3kb1x")
+
+[sub_resource type="Animation" id="Animation_cflqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/CanvasLayer/Gioca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/CanvasLayer/Comandi:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/CanvasLayer/Exit:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Name:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cape:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RunicBookIg:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n5ad7"]
+resource_name = "pulsanti"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/CanvasLayer/Gioca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/CanvasLayer/Comandi:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/CanvasLayer/Exit:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Name:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cape:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RunicBookIg:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dwwy"]
+_data = {
+"RESET": SubResource("Animation_cflqc"),
+"pulsanti": SubResource("Animation_n5ad7")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnuxw"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_143r5"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvlns"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i6qa"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s658"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygfs8"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35rh7"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqbad"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy32d"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0ij4"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_why7n"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kcb3"]
+atlas = ExtResource("5_w4mrl")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d60ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnuxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_143r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvlns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i6qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s658")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygfs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35rh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqbad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy32d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0ij4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_why7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kcb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MainUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dtfuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(152, 90)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("2_x6dc2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D"]
+layer = 2
+
+[node name="Gioca" type="Button" parent="Sprite2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.561
+anchor_right = 0.653
+anchor_bottom = 0.683
+offset_left = -80.84
+offset_top = -28.98
+offset_right = -100.96
+offset_bottom = -26.94
+theme = ExtResource("3_g2org")
+theme_override_fonts/font = ExtResource("2_fxffu")
+text = "Gioca"
+
+[node name="Comandi" type="Button" parent="Sprite2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.561
+anchor_right = 0.653
+anchor_bottom = 0.683
+offset_left = -80.84
+offset_top = 1.02
+offset_right = -100.96
+offset_bottom = 2.06
+theme = ExtResource("3_g2org")
+theme_override_fonts/font = ExtResource("2_fxffu")
+text = "comandi"
+
+[node name="Exit" type="Button" parent="Sprite2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.561
+anchor_right = 0.653
+anchor_bottom = 0.683
+offset_left = -80.84
+offset_top = 30.02
+offset_right = -100.96
+offset_bottom = 31.06
+theme = ExtResource("3_g2org")
+theme_override_fonts/font = ExtResource("2_fxffu")
+text = "Esci"
+
+[node name="fuego2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lxhs7")
+layout_mode = 0
+offset_left = -1.0
+offset_top = -32.0
+offset_right = 320.0
+offset_bottom = 149.0
+
+[node name="fuego" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xvm4l")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3dwwy")
+}
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 33.0
+offset_top = 12.0
+offset_right = 285.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme = ExtResource("4_5xxfs")
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 48
+text = "Lost Spells"
+justification_flags = 160
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4loa8")
+autoplay = true
+
+[node name="Selection" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_d8vng")
+
+[node name="Cape" type="Sprite2D" parent="."]
+position = Vector2(67, 17)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_chju3")
+
+[node name="RunicBookIg" type="Sprite2D" parent="."]
+position = Vector2(164, 71)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_rp0gc")
+centered = false
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(124, -7)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_d60ny")
+autoplay = "default"
+frame_progress = 0.37358
+centered = false
+
+[connection signal="mouse_entered" from="Sprite2D/CanvasLayer/Gioca" to="." method="_on_gioca_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/CanvasLayer/Gioca" to="." method="_on_gioca_mouse_exited"]
+[connection signal="pressed" from="Sprite2D/CanvasLayer/Gioca" to="." method="_on_gioca_pressed"]
+[connection signal="mouse_entered" from="Sprite2D/CanvasLayer/Comandi" to="." method="_on_comandi_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/CanvasLayer/Comandi" to="." method="_on_comandi_mouse_exited"]
+[connection signal="pressed" from="Sprite2D/CanvasLayer/Comandi" to="." method="_on_comandi_pressed"]
+[connection signal="mouse_entered" from="Sprite2D/CanvasLayer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/CanvasLayer/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="Sprite2D/CanvasLayer/Exit" to="." method="_on_exit_pressed"]

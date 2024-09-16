@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d27k6yggbqth2"]
+
+[ext_resource type="Script" path="res://spellsEffects/berskerk.gd" id="1_n3a41"]
+[ext_resource type="Texture2D" uid="uid://loskkrhuejx6" path="res://UI/spellInventory/spells/spellsIcon/berserk.png" id="2_nmuvs"]
+
+[resource]
+script = ExtResource("1_n3a41")
+name = "berskerk"
+damageDescription = "Healt cost: 30 HP"
+buff0 = "+50% Crit Chance"
+buff1 = "+0.5 Crit Damage"
+texture = ExtResource("2_nmuvs")
+cd = 20
+manaCost = 20
+healtCost = 20
+isAHealing = false

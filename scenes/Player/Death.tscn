@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1pjam47imrhq"]
+
+[ext_resource type="Script" path="res://script/Player/Death.gd" id="1_33xc6"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="2_mxwyn"]
+[ext_resource type="Texture2D" uid="uid://bnnty67yjv5o0" path="res://art/UI/skull.png" id="3_8fuvr"]
+
+[node name="Death" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_33xc6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 186.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 6.0
+offset_right = 320.0
+offset_bottom = 65.0
+theme = ExtResource("2_mxwyn")
+theme_override_font_sizes/font_size = 64
+text = "Sei morto"
+
+[node name="Skull" type="Sprite2D" parent="."]
+position = Vector2(159, 93)
+texture = ExtResource("3_8fuvr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 115.0
+offset_top = 140.0
+offset_right = 201.0
+offset_bottom = 168.0
+theme = ExtResource("2_mxwyn")
+text = "Rigioca"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

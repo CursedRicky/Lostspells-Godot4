@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=3 format=3 uid="uid://2v2y7japop4p"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spell.gd" id="1_ruvrf"]
+[ext_resource type="Texture2D" uid="uid://dp7ualbfygcp5" path="res://UI/spellInventory/spells/spellsIcon/wave.png" id="2_lrif8"]
+
+[resource]
+script = ExtResource("1_ruvrf")
+name = "wave"
+damageDescription = ""
+buff0 = ""
+buff1 = ""
+texture = ExtResource("2_lrif8")
+cd = 0
+rarity = 3
+manaCost = 10
+healtCost = 0
+isAHealing = false

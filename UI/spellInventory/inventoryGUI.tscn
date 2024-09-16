@@ -1,0 +1,260 @@
+[gd_scene load_steps=4 format=3 uid="uid://tdx0r5dsrebb"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventoryGUI.gd" id="1_80xwf"]
+[ext_resource type="PackedScene" uid="uid://b50wq1m4jej41" path="res://UI/spellInventory/slot.tscn" id="2_4wut1"]
+[ext_resource type="Texture2D" uid="uid://b1eudfyi30y5d" path="res://dungeon/bookB.png" id="2_yjiua"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -10.0
+offset_bottom = -10.0
+script = ExtResource("1_80xwf")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 30.0
+offset_right = 277.0
+offset_bottom = 157.0
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="RunicBookIg" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(137, 69)
+scale = Vector2(3, 3)
+texture = ExtResource("2_yjiua")
+
+[node name="GridContainer" type="Panel" parent="NinePatchRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -48.5
+offset_right = 208.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+
+[node name="Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = -28.5714
+offset_top = 25.7143
+offset_right = 3.42857
+offset_bottom = 57.7143
+scale = Vector2(1, 1)
+
+[node name="Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = -28.5714
+offset_top = 64.2857
+offset_right = 3.4286
+offset_bottom = 96.2857
+scale = Vector2(1, 1)
+
+[node name="Slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = -28.5714
+offset_top = 101.429
+offset_right = 3.42857
+offset_bottom = 133.429
+scale = Vector2(1, 1)
+
+[node name="Slot13" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 68.5714
+offset_top = 1.42857
+offset_right = 100.571
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot14" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 104.286
+offset_top = 1.42857
+offset_right = 136.286
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot15" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 138.571
+offset_top = 1.42857
+offset_right = 170.571
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot16" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 68.5714
+offset_top = 37.1429
+offset_right = 100.571
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot17" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 104.286
+offset_top = 37.1429
+offset_right = 136.286
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot18" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 138.571
+offset_top = 37.1429
+offset_right = 170.571
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot19" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 68.5714
+offset_top = 72.8571
+offset_right = 100.571
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot20" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 104.286
+offset_top = 72.8571
+offset_right = 136.286
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot21" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 138.571
+offset_top = 72.8571
+offset_right = 170.571
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot22" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 68.5714
+offset_top = 108.571
+offset_right = 100.571
+offset_bottom = 140.571
+scale = Vector2(1, 1)
+
+[node name="Slot23" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 104.286
+offset_top = 108.571
+offset_right = 136.286
+offset_bottom = 140.572
+scale = Vector2(1, 1)
+
+[node name="Slot24" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 138.571
+offset_top = 108.571
+offset_right = 170.571
+offset_bottom = 140.572
+scale = Vector2(1, 1)
+
+[node name="Slot25" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 215.714
+offset_top = 1.42857
+offset_right = 247.714
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot26" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 251.429
+offset_top = 1.42857
+offset_right = 283.429
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot27" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 285.714
+offset_top = 1.42857
+offset_right = 317.714
+offset_bottom = 33.4286
+scale = Vector2(1, 1)
+
+[node name="Slot28" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 215.714
+offset_top = 37.1429
+offset_right = 247.714
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot29" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 251.429
+offset_top = 37.1429
+offset_right = 283.429
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot30" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 285.714
+offset_top = 37.1429
+offset_right = 317.714
+offset_bottom = 69.1429
+scale = Vector2(1, 1)
+
+[node name="Slot31" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 215.714
+offset_top = 72.8571
+offset_right = 247.714
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot32" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 251.429
+offset_top = 72.8571
+offset_right = 283.429
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot33" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 285.714
+offset_top = 72.8571
+offset_right = 317.714
+offset_bottom = 104.857
+scale = Vector2(1, 1)
+
+[node name="Slot34" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 215.714
+offset_top = 108.571
+offset_right = 247.714
+offset_bottom = 140.571
+scale = Vector2(1, 1)
+
+[node name="Slot35" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 251.429
+offset_top = 108.571
+offset_right = 283.429
+offset_bottom = 140.572
+scale = Vector2(1, 1)
+
+[node name="Slot36" parent="NinePatchRect/GridContainer" instance=ExtResource("2_4wut1")]
+layout_mode = 2
+offset_left = 285.714
+offset_top = 108.571
+offset_right = 317.714
+offset_bottom = 140.572
+scale = Vector2(1, 1)

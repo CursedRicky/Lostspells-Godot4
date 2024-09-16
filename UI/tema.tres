@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dxigj16gs6rfw"]
+
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="1_tdhm1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_auhxo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmsy4"]
+bg_color = Color(0.34902, 0.184314, 0.160784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ubuj"]
+bg_color = Color(0.737255, 0.427451, 0.278431, 1)
+border_width_bottom = 5
+border_color = Color(1, 0.564706, 0.356863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvyc4"]
+bg_color = Color(0.34902, 0.184314, 0.160784, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[resource]
+default_font = ExtResource("1_tdhm1")
+default_font_size = 16
+Button/fonts/font = ExtResource("1_tdhm1")
+Button/styles/focus = SubResource("StyleBoxEmpty_auhxo")
+Button/styles/hover = SubResource("StyleBoxFlat_wmsy4")
+Button/styles/normal = SubResource("StyleBoxFlat_7ubuj")
+Button/styles/pressed = SubResource("StyleBoxFlat_rvyc4")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/fonts/font = ExtResource("1_tdhm1")

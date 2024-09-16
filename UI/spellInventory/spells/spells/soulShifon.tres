@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bokcydxxr503n"]
+
+[ext_resource type="Script" path="res://spellsEffects/soulShyphon.gd" id="1_05q13"]
+[ext_resource type="Texture2D" uid="uid://c7gwi1fe0wt4r" path="res://UI/spellInventory/spells/spellsIcon/lamentoDeiMorti.png" id="2_bumqo"]
+
+[resource]
+script = ExtResource("1_05q13")
+name = "souls's turment"
+damageDescription = "base damage: 30"
+buff0 = "+0.2 Damages x soul"
+buff1 = ""
+texture = ExtResource("2_bumqo")
+cd = 4
+rarity = 2
+manaCost = 10
+healtCost = 0
+isAHealing = false

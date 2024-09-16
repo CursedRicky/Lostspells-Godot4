@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2jnaemac1erk"
+path="res://.godot/imported/Swipe.mp3-9b6b4651721263ce30f2b516cbbfe2a9.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Swipe.mp3"
+dest_files=["res://.godot/imported/Swipe.mp3-9b6b4651721263ce30f2b516cbbfe2a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

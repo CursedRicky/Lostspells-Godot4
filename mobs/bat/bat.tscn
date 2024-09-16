@@ -1,0 +1,498 @@
+[gd_scene load_steps=42 format=3 uid="uid://delqnkvhl6im7"]
+
+[ext_resource type="Script" path="res://script/Enemy/Bat.gd" id="1_f4nel"]
+[ext_resource type="Shader" path="res://art/Shader/Blink.gdshader" id="2_7dijc"]
+[ext_resource type="Shader" path="res://art/Shader/freeze.gdshader" id="2_ol8cb"]
+[ext_resource type="Texture2D" uid="uid://ddpykgcgqo0ve" path="res://art/Shadows/SmallShadow.png" id="3_ihbxk"]
+[ext_resource type="Texture2D" uid="uid://dudmetdj77tvh" path="res://mobs/bat/Bat.png" id="3_r1xny"]
+[ext_resource type="Texture2D" uid="uid://7jlx1kegt31q" path="res://mobs/bat/bat_normal.png" id="4_3le07"]
+[ext_resource type="PackedScene" uid="uid://8mk0il1s3w4j" path="res://scenes/Box/New/hurt_box.tscn" id="5_dn1gj"]
+[ext_resource type="PackedScene" uid="uid://d3q5a0ppcdkug" path="res://scenes/Box/stats.tscn" id="7_hxs30"]
+[ext_resource type="AudioStream" uid="uid://1ji7u6dji25x" path="res://art/Music and Sounds/Bat/Bat.mp3" id="7_qx0un"]
+[ext_resource type="AudioStream" uid="uid://chwcwxwxiaci5" path="res://art/Music and Sounds/Bat/Attacked.mp3" id="8_2rmkp"]
+[ext_resource type="Texture2D" uid="uid://c4pfohrmn4j1j" path="res://art/Effects/Particle/particle.png" id="10_vvd5j"]
+[ext_resource type="PackedScene" uid="uid://dpg8igdyy7wcb" path="res://scenes/Box/New/hitBox.tscn" id="11_1dcpo"]
+[ext_resource type="Texture2D" uid="uid://pelhkmr0twlh" path="res://UI/Textures/Enemy Healthbar/spr_enemy_health_bar_frame.png" id="11_pnkaf"]
+[ext_resource type="Texture2D" uid="uid://bxf5620tcb33j" path="res://UI/Textures/Enemy Healthbar/spr_enemy_health_bar_frame _damage.png" id="12_wrewi"]
+[ext_resource type="Texture2D" uid="uid://de3syths5knky" path="res://UI/Textures/Enemy Healthbar/bar.png" id="13_i6tcn"]
+[ext_resource type="Texture2D" uid="uid://0kgwim8bo2g2" path="res://UI/Textures/toxic.png" id="14_c35sn"]
+[ext_resource type="Script" path="res://script/Enemy/Boss/FiniteStateMachine.gd" id="15_0rtcv"]
+[ext_resource type="Script" path="res://mobs/states/Moving.gd" id="16_fdk3d"]
+[ext_resource type="Script" path="res://mobs/states/FollowNoAttack.gd" id="17_yddq0"]
+
+[sub_resource type="Animation" id="Animation_ooion"]
+resource_name = "Idle"
+length = 0.50001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_khw7u"]
+resource_name = "Move"
+length = 0.50001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_uq8pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwqgg"]
+_data = {
+"Idle": SubResource("Animation_ooion"),
+"Move": SubResource("Animation_khw7u"),
+"RESET": SubResource("Animation_uq8pl")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hh713"]
+shader = ExtResource("2_ol8cb")
+shader_parameter/blink = false
+shader_parameter/freeze = false
+shader_parameter/freeze_color = Color(0.365897, 0.562772, 1, 1)
+shader_parameter/freeze_intensity = 0.7
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3n8ff"]
+diffuse_texture = ExtResource("3_r1xny")
+normal_texture = ExtResource("4_3le07")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opkql"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25hc2"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fu2k"]
+radius = 2.99978
+height = 7.9994
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv5x2"]
+radius = 164.027
+
+[sub_resource type="Animation" id="Animation_coq8p"]
+resource_name = "Blink"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7dijc")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:use_parent_material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_egnm8"]
+resource_name = "Freeze"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_01e47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7dijc")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:use_parent_material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_825r0"]
+resource_name = "UnFreeze"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yqu6"]
+_data = {
+"Blink": SubResource("Animation_coq8p"),
+"Freeze": SubResource("Animation_egnm8"),
+"RESET": SubResource("Animation_01e47"),
+"UnFreeze": SubResource("Animation_825r0")
+}
+
+[sub_resource type="Curve" id="Curve_pw1jr"]
+_data = [Vector2(0, 0.35061), 0.0, 0.0, 0, 0, Vector2(0.14, 0.992886), 0.0, 0.0, 0, 0, Vector2(1, 0.221545), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_idpgb"]
+curve = SubResource("Curve_pw1jr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m8yyd"]
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_max = 45.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_idpgb")
+
+[sub_resource type="Animation" id="Animation_qer2y"]
+resource_name = "Freeze"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ol8cb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gm6ts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ol8cb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:use_parent_material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1h7nh"]
+resource_name = "Unfreeze"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:use_parent_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7llb5"]
+_data = {
+"Freeze": SubResource("Animation_qer2y"),
+"RESET": SubResource("Animation_gm6ts"),
+"Unfreeze": SubResource("Animation_1h7nh")
+}
+
+[node name="Bat" type="CharacterBody2D"]
+process_mode = 1
+y_sort_enabled = true
+collision_layer = 67109538
+collision_mask = 67108865
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_f4nel")
+
+[node name="Sprite" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pwqgg")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_hh713")
+texture = SubResource("CanvasTexture_3n8ff")
+offset = Vector2(0, -12)
+hframes = 5
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("3_ihbxk")
+
+[node name="hitBox" parent="." instance=ExtResource("11_1dcpo")]
+collision_layer = 8
+damage = 2
+
+[node name="CollisionShape2D" parent="hitBox" index="0"]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_opkql")
+debug_color = Color(0.864585, 0.000595089, 0.864113, 0.42)
+
+[node name="HurtBox2" parent="." instance=ExtResource("5_dn1gj")]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HurtBox2" index="0"]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_25hc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.86264e-09, -14)
+rotation = -4.70017
+shape = SubResource("CapsuleShape2D_0fu2k")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 8388608
+collision_mask = 8389120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_sv5x2")
+debug_color = Color(0.756863, 0.380392, 0.643137, 0.419608)
+
+[node name="Stats" parent="." instance=ExtResource("7_hxs30")]
+maxHealt = 3
+
+[node name="Ambiente" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qx0un")
+autoplay = true
+max_distance = 100.0
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_2rmkp")
+max_distance = 100.0
+
+[node name="Blink" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1yqu6")
+}
+
+[node name="Origin" type="Node2D" parent="."]
+
+[node name="HitParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -15)
+emitting = false
+amount = 6
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_m8yyd")
+texture = ExtResource("10_vvd5j")
+lifetime = 0.3
+one_shot = true
+preprocess = 0.03
+explosiveness = 0.8
+randomness = 0.59
+local_coords = true
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+offset_left = -18.0
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = -21.0
+texture_over = ExtResource("13_i6tcn")
+
+[node name="HPBar" type="TextureProgressBar" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+z_as_relative = false
+offset_left = -10.0
+offset_top = -32.0
+offset_right = 25.0
+offset_bottom = -21.0
+size_flags_vertical = 8
+step = 0.01
+value = 100.0
+texture_progress = ExtResource("11_pnkaf")
+metadata/_edit_group_ = true
+
+[node name="DamageBar" type="TextureProgressBar" parent="HPBar"]
+show_behind_parent = true
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 11.0
+size_flags_vertical = 8
+texture_progress = ExtResource("12_wrewi")
+
+[node name="Timer" type="Timer" parent="HPBar"]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="Poison" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -28)
+texture = ExtResource("14_c35sn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("15_0rtcv")
+
+[node name="Follow" type="Node2D" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("17_yddq0")
+animation_player = NodePath("../../Sprite")
+
+[node name="Moving" type="Node2D" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("16_fdk3d")
+animation_player = NodePath("../../Sprite")
+
+[node name="MovingTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="StopMoving" type="Timer" parent="MovingTimer"]
+wait_time = 2.0
+one_shot = true
+
+[node name="UnFreeze" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="Freeze" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7llb5")
+}
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="hurt" from="HurtBox2" to="." method="_on_hurt_box_2_hurt"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="HPBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MovingTimer" to="." method="_on_moving_timer_timeout"]
+[connection signal="timeout" from="MovingTimer/StopMoving" to="." method="_on_stop_moving_timeout"]
+[connection signal="timeout" from="UnFreeze" to="." method="_on_un_freeze_timeout"]
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+
+[editable path="hitBox"]
+[editable path="HurtBox2"]

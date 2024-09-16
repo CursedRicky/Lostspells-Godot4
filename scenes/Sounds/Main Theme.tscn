@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtbyl0yhp1ang"]
+
+[ext_resource type="AudioStream" uid="uid://gcf1utfrr37f" path="res://art/Music and Sounds/Music.mp3" id="1_hmk6g"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_hmk6g")
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.5

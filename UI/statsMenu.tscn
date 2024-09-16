@@ -1,0 +1,434 @@
+[gd_scene load_steps=30 format=3 uid="uid://d0f4asswyasv2"]
+
+[ext_resource type="Script" path="res://UI/Script/statsMenu.gd" id="1_adlf6"]
+[ext_resource type="Texture2D" uid="uid://68g6hg5ip4ly" path="res://art/UI/stats/statsMenu.png" id="2_jcd8r"]
+[ext_resource type="Texture2D" uid="uid://ta2e5qcr8noa" path="res://Inventory/Icons/crit.png" id="3_dg082"]
+[ext_resource type="Script" path="res://script/Player/critDisplay.gd" id="3_ognwh"]
+[ext_resource type="Texture2D" uid="uid://dgtn35xob53fs" path="res://Inventory/Icons/armor.png" id="4_65rnk"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="5_5vpqh"]
+[ext_resource type="Script" path="res://script/Player/armorDisplay.gd" id="6_l32wm"]
+[ext_resource type="Script" path="res://script/Player/msDisplay.gd" id="8_3qgbs"]
+[ext_resource type="Texture2D" uid="uid://jnfxt2jykidb" path="res://Inventory/Icons/ms.png" id="9_wedak"]
+[ext_resource type="Script" path="res://script/Player/manaRegDisplay.gd" id="10_2igup"]
+[ext_resource type="Texture2D" uid="uid://bfbs48o5hgq6y" path="res://Inventory/Icons/mana.png" id="10_6t7e4"]
+[ext_resource type="Texture2D" uid="uid://d0wrrhnswflob" path="res://art/UI/stats/armor.png" id="10_q14t5"]
+[ext_resource type="Texture2D" uid="uid://cu0ab505oeyj2" path="res://Inventory/Icons/ad.png" id="11_0fxwm"]
+[ext_resource type="Script" path="res://script/Player/adDisplay.gd" id="11_4whd2"]
+[ext_resource type="Texture2D" uid="uid://bwf1ogeid7213" path="res://art/UI/stats/armor_hover.png" id="11_5ihn5"]
+[ext_resource type="Texture2D" uid="uid://cq67ekevsp4yf" path="res://art/UI/stats/crit.png" id="12_w2i6x"]
+[ext_resource type="Texture2D" uid="uid://dji7rnrmy74cp" path="res://art/UI/stats/ms.png" id="13_ihwq6"]
+[ext_resource type="Texture2D" uid="uid://421nl2dj78xm" path="res://art/UI/stats/crit_hover.png" id="13_vr7uk"]
+[ext_resource type="Texture2D" uid="uid://bi2kj4cmu0r2s" path="res://art/UI/stats/ms_hover.png" id="14_3nld2"]
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="14_4ot3j"]
+[ext_resource type="Texture2D" uid="uid://dh3u6qn5bgc4b" path="res://art/UI/stats/healt.png" id="15_ampxq"]
+[ext_resource type="Texture2D" uid="uid://drf7cnvepn7re" path="res://art/UI/stats/healt_hover.png" id="16_lwohh"]
+[ext_resource type="Texture2D" uid="uid://fb5jxrh8isl" path="res://art/UI/stats/mana_hover.png" id="18_6ttlg"]
+[ext_resource type="Texture2D" uid="uid://d32oi8ek7kvqc" path="res://art/UI/stats/mana.png" id="19_cyosv"]
+[ext_resource type="Texture2D" uid="uid://bixpo4webbamd" path="res://art/UI/stats/damage.png" id="24_u5nx3"]
+[ext_resource type="Texture2D" uid="uid://bq8g4puj0ma4k" path="res://art/UI/stats/damage_hover.png" id="25_ucfmg"]
+
+[sub_resource type="Animation" id="Animation_bqxbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ms:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/armor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/crit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ieerk"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ms:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/armor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/crit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5k0al"]
+_data = {
+"RESET": SubResource("Animation_bqxbo"),
+"blur": SubResource("Animation_ieerk")
+}
+
+[node name="statsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adlf6")
+
+[node name="Panel" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -72.0
+offset_right = 96.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jcd8r")
+
+[node name="crit" type="Control" parent="Panel"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 157.0
+script = ExtResource("3_ognwh")
+
+[node name="crit" type="Sprite2D" parent="Panel/crit"]
+position = Vector2(161, 13)
+scale = Vector2(0.812501, 0.812501)
+texture = ExtResource("3_dg082")
+
+[node name="Label" type="Label" parent="Panel/crit"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 10.0
+offset_right = 174.0
+offset_bottom = 59.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+text = "0"
+horizontal_alignment = 2
+
+[node name="armor" type="Control" parent="Panel"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 157.0
+script = ExtResource("6_l32wm")
+
+[node name="armor" type="Sprite2D" parent="Panel/armor"]
+position = Vector2(160, 31)
+scale = Vector2(1.40625, 1.40625)
+texture = ExtResource("4_65rnk")
+
+[node name="Label" type="Label" parent="Panel/armor"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 26.0
+offset_right = 174.0
+offset_bottom = 75.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+text = "0"
+horizontal_alignment = 2
+
+[node name="ms" type="Control" parent="Panel"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 157.0
+script = ExtResource("8_3qgbs")
+
+[node name="ms" type="Sprite2D" parent="Panel/ms"]
+position = Vector2(161.5, 48.5)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("9_wedak")
+
+[node name="Label" type="Label" parent="Panel/ms"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 43.0
+offset_right = 174.0
+offset_bottom = 92.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+text = "0"
+horizontal_alignment = 2
+
+[node name="manaReg" type="Control" parent="Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 33.0
+offset_right = 200.0
+offset_bottom = 175.0
+script = ExtResource("10_2igup")
+
+[node name="manaReg" type="Sprite2D" parent="Panel/manaReg"]
+position = Vector2(161.5, 48.5)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("10_6t7e4")
+
+[node name="Label" type="Label" parent="Panel/manaReg"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 43.0
+offset_right = 174.0
+offset_bottom = 92.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+text = "0"
+horizontal_alignment = 2
+
+[node name="ad" type="Control" parent="Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 192.0
+script = ExtResource("11_4whd2")
+
+[node name="ad" type="Sprite2D" parent="Panel/ad"]
+position = Vector2(161.5, 48.5)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("11_0fxwm")
+
+[node name="Label" type="Label" parent="Panel/ad"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 43.0
+offset_right = 174.0
+offset_bottom = 92.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+text = "0"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5k0al")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Armor" type="TextureButton" parent="CanvasLayer"]
+offset_left = 79.0
+offset_top = 76.0
+offset_right = 127.0
+offset_bottom = 124.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_q14t5")
+texture_hover = ExtResource("11_5ihn5")
+
+[node name="ArmorLabel" type="Label" parent="CanvasLayer"]
+offset_left = 67.0
+offset_top = 94.0
+offset_right = 137.0
+offset_bottom = 143.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="Crit" type="TextureButton" parent="CanvasLayer"]
+offset_left = 79.0
+offset_top = 43.0
+offset_right = 127.0
+offset_bottom = 91.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_w2i6x")
+texture_hover = ExtResource("13_vr7uk")
+
+[node name="CritLabel" type="Label" parent="CanvasLayer"]
+offset_left = 67.0
+offset_top = 61.0
+offset_right = 137.0
+offset_bottom = 110.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="MS" type="TextureButton" parent="CanvasLayer"]
+offset_left = 79.0
+offset_top = 109.0
+offset_right = 127.0
+offset_bottom = 157.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("13_ihwq6")
+texture_hover = ExtResource("14_3nld2")
+
+[node name="MSLabel" type="Label" parent="CanvasLayer"]
+offset_left = 67.0
+offset_top = 127.0
+offset_right = 137.0
+offset_bottom = 176.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="Healt" type="TextureButton" parent="CanvasLayer"]
+offset_left = 111.0
+offset_top = 43.0
+offset_right = 159.0
+offset_bottom = 91.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("15_ampxq")
+texture_hover = ExtResource("16_lwohh")
+
+[node name="HealtLabel" type="Label" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 61.0
+offset_right = 169.0
+offset_bottom = 110.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="ManaReg" type="TextureButton" parent="CanvasLayer"]
+offset_left = 111.0
+offset_top = 76.0
+offset_right = 159.0
+offset_bottom = 124.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("18_6ttlg")
+texture_hover = ExtResource("19_cyosv")
+
+[node name="ManaRegLabel" type="Label" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 94.0
+offset_right = 169.0
+offset_bottom = 143.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="Ad" type="TextureButton" parent="CanvasLayer"]
+offset_left = 111.0
+offset_top = 109.0
+offset_right = 159.0
+offset_bottom = 157.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("24_u5nx3")
+texture_hover = ExtResource("25_ucfmg")
+
+[node name="AdLabel" type="Label" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 127.0
+offset_right = 169.0
+offset_bottom = 176.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("5_5vpqh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="CanvasLayer"]
+offset_left = 235.0
+offset_top = 139.0
+offset_right = 275.0
+offset_bottom = 162.0
+theme_override_fonts/font = ExtResource("14_4ot3j")
+text = "0"
+
+[connection signal="pressed" from="CanvasLayer/Armor" to="." method="_on_armor_pressed"]
+[connection signal="pressed" from="CanvasLayer/Crit" to="." method="_on_crit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MS" to="." method="_on_ms_pressed"]
+[connection signal="pressed" from="CanvasLayer/Healt" to="." method="_on_healt_pressed"]
+[connection signal="pressed" from="CanvasLayer/ManaReg" to="." method="_on_mana_reg_pressed"]
+[connection signal="pressed" from="CanvasLayer/Ad" to="." method="_on_ad_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfr17w0hy7neb"
+path="res://.godot/imported/ghostHit.mp3-e8565c5482845b2af6d176b864120d80.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Ghost/ghostHit.mp3"
+dest_files=["res://.godot/imported/ghostHit.mp3-e8565c5482845b2af6d176b864120d80.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

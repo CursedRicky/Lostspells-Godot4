@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs38455xboiyi"]
+
+[ext_resource type="Texture2D" uid="uid://poivgbpuna5u" path="res://art/World/Tiles/ForestTile/spr_grass_tileset.png" id="1_c4kbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73x03"]
+size = Vector2(5, 20)
+
+[node name="LampioneFront" type="StaticBody2D"]
+z_index = 1
+collision_layer = 8192
+collision_mask = 8192
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -11.5)
+texture = ExtResource("1_c4kbd")
+region_enabled = true
+region_rect = Rect2(306, 377, 14, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_73x03")

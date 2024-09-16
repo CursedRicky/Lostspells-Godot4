@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ddw2jduo1khq4"]
+
+[ext_resource type="Script" path="res://spellsEffects/ice.gd" id="1_dvu7w"]
+[ext_resource type="Texture2D" uid="uid://u5ib17ivyq3c" path="res://UI/spellInventory/spells/spellsIcon/frozenLance.png" id="2_xjl30"]
+
+[resource]
+script = ExtResource("1_dvu7w")
+name = "Ice lance"
+damageDescription = "Base damage: 10"
+buff0 = "Freeze"
+buff1 = ""
+texture = ExtResource("2_xjl30")
+cd = 4
+manaCost = 10
+healtCost = 0
+isAHealing = false

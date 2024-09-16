@@ -1,0 +1,156 @@
+[gd_scene load_steps=22 format=3 uid="uid://bvwbds6pj1q4u"]
+
+[ext_resource type="Texture2D" uid="uid://b0yssedt0cdgn" path="res://dungeon/Objects and buildings/Barrels and crates/Animated/Barrel/Breaking/spr_barrel_breaking_outline.png" id="1_7fyys"]
+[ext_resource type="Script" path="res://obj/barrel.gd" id="1_r4t1r"]
+[ext_resource type="Texture2D" uid="uid://48cjmylwypm0" path="res://dungeon/Objects and buildings/Barrels and crates/Animated/Barrel/Particles/spr_broken_barrel_static.png" id="2_w2tdm"]
+[ext_resource type="Texture2D" uid="uid://c17u54hk21chg" path="res://dungeon/Objects and buildings/Barrels and crates/spr_barrel2.png" id="3_y7b71"]
+[ext_resource type="PackedScene" uid="uid://8mk0il1s3w4j" path="res://scenes/Box/New/hurt_box.tscn" id="4_gheby"]
+[ext_resource type="Texture2D" uid="uid://wjsdm7svmp7e" path="res://dungeon/Objects and buildings/Barrels and crates/Animated/Barrel/Particles/spr_barrel_particle1.png" id="6_xqxmm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhac"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2arq"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njf4o"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3iqq"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd7ji"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myl37"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cwq0"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hg83"]
+atlas = ExtResource("1_7fyys")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1hyg"]
+atlas = ExtResource("2_w2tdm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olnrq"]
+atlas = ExtResource("3_y7b71")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xxhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2arq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njf4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3iqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd7ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myl37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cwq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hg83")
+}],
+"loop": false,
+"name": &"breaking",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1hyg")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olnrq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wfsyf"]
+radius = 3.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdy02"]
+radius = 6.0
+
+[sub_resource type="CurveTexture" id="CurveTexture_ewc0y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tw2va"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+radial_accel_curve = SubResource("CurveTexture_ewc0y")
+tangential_accel_min = -100.0
+tangential_accel_max = -86.55
+turbulence_enabled = true
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(0, 20, 0)
+turbulence_noise_speed_random = 1.65
+turbulence_initial_displacement_min = -62.1
+turbulence_initial_displacement_max = 42.0
+
+[node name="Barrel" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+collision_mask = 0
+script = ExtResource("1_r4t1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_6xxhs")
+animation = &"broken"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wfsyf")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_gheby")]
+position = Vector2(0, -6)
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_xdy02")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 20
+amount_ratio = 0.2
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_tw2va")
+texture = ExtResource("6_xqxmm")
+trail_lifetime = 0.1
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

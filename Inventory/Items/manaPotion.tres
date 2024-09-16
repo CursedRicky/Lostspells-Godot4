@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDatas" load_steps=3 format=3 uid="uid://d0jxufwrctq1n"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/ItemData.gd" id="1_pfi53"]
+[ext_resource type="Texture2D" uid="uid://dhdugbko07t7g" path="res://art/Items/manaPotion.png" id="2_mrw7g"]
+
+[resource]
+script = ExtResource("1_pfi53")
+type = 5
+name = "Pozione Di Mana"
+description = "+ 50 Mana"
+texture = ExtResource("2_mrw7g")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p2gxduj1ld4d"
+path="res://.godot/imported/souls.mp3-b99d40b74d3bb88f954013bad0167d6c.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/souls.mp3"
+dest_files=["res://.godot/imported/souls.mp3-b99d40b74d3bb88f954013bad0167d6c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

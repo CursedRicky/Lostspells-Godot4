@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="SpellInventory" load_steps=26 format=3 uid="uid://drsp6orqrieep"]
+
+[ext_resource type="Resource" uid="uid://blq07vaaovi61" path="res://spells/spells/venomtouch.tres" id="1_e10nm"]
+[ext_resource type="Script" path="res://inventory/inventorySlot.gd" id="2_01w18"]
+[ext_resource type="Script" path="res://inventory/spellInventory.gd" id="2_fgw0w"]
+[ext_resource type="Resource" uid="uid://hq7adhflmffj" path="res://spells/spells/heal.tres" id="4_da34p"]
+
+[sub_resource type="Resource" id="Resource_77otk"]
+script = ExtResource("2_01w18")
+item = ExtResource("1_e10nm")
+
+[sub_resource type="Resource" id="Resource_l4xno"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_2oq83"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_f04ht"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_2fetn"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_sngly"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_b35e0"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_x16el"]
+script = ExtResource("2_01w18")
+item = ExtResource("4_da34p")
+
+[sub_resource type="Resource" id="Resource_vpo2u"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_wjtqn"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_k4mtt"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_34dy1"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_vekn2"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_rogii"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_xplhu"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_ee8iw"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_aeqxo"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_u5ued"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_anvkb"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_b5b7q"]
+script = ExtResource("2_01w18")
+
+[sub_resource type="Resource" id="Resource_jws0o"]
+script = ExtResource("2_01w18")
+
+[resource]
+script = ExtResource("2_fgw0w")
+slots = Array[ExtResource("2_01w18")]([SubResource("Resource_77otk"), SubResource("Resource_l4xno"), SubResource("Resource_2oq83"), SubResource("Resource_f04ht"), SubResource("Resource_2fetn"), SubResource("Resource_sngly"), SubResource("Resource_b35e0"), SubResource("Resource_x16el"), SubResource("Resource_vpo2u"), SubResource("Resource_wjtqn"), SubResource("Resource_k4mtt"), SubResource("Resource_34dy1"), SubResource("Resource_vekn2"), SubResource("Resource_rogii"), SubResource("Resource_xplhu"), SubResource("Resource_ee8iw"), SubResource("Resource_aeqxo"), SubResource("Resource_u5ued"), SubResource("Resource_anvkb"), SubResource("Resource_b5b7q"), SubResource("Resource_jws0o")])

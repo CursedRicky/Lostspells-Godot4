@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5r5he5q2sdm5"]
+
+[ext_resource type="Texture2D" uid="uid://2uvx4tor5qra" path="res://art/Items/torchV.png" id="1_pim7l"]
+[ext_resource type="AudioStream" uid="uid://csnenf8u42fmw" path="res://art/Music and Sounds/fuoco.mp3" id="2_jr028"]
+
+[sub_resource type="Gradient" id="Gradient_shwwu"]
+offsets = PackedFloat32Array(0, 0.689394)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ostk8"]
+gradient = SubResource("Gradient_shwwu")
+width = 40
+height = 40
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqn4s"]
+atlas = ExtResource("1_pim7l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on70c"]
+atlas = ExtResource("1_pim7l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lamwd"]
+atlas = ExtResource("1_pim7l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkjo1"]
+atlas = ExtResource("1_pim7l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrqf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqn4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on70c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lamwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkjo1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Curve" id="Curve_osu7s"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5a7ap"]
+curve = SubResource("Curve_osu7s")
+
+[sub_resource type="Gradient" id="Gradient_ch6i5"]
+offsets = PackedFloat32Array(0, 0.37, 1)
+colors = PackedColorArray(0.688735, 0.640184, 0.247391, 1, 1, 0.585938, 0, 1, 1, 0.407843, 0.32549, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73b4a"]
+gradient = SubResource("Gradient_ch6i5")
+
+[sub_resource type="Curve" id="Curve_s1m5y"]
+_data = [Vector2(0, 0.813187), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xvaee"]
+curve = SubResource("Curve_s1m5y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02d3c"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+angle_min = -1349.0
+angle_max = 720.0
+angle_curve = SubResource("CurveTexture_5a7ap")
+direction = Vector3(0, -1, 0)
+spread = 8.0
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_xvaee")
+color_ramp = SubResource("GradientTexture1D_73b4a")
+turbulence_enabled = true
+turbulence_noise_scale = 4.78
+
+[node name="TorciaV" type="PointLight2D"]
+process_mode = 3
+color = Color(0.927686, 0.381152, 0.0306763, 1)
+texture = SubResource("GradientTexture2D_ostk8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nrqf6")
+autoplay = "default"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-1, 0)
+amount = 20
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_02d3c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jr028")
+volume_db = -1.68
+autoplay = true
+max_distance = 64.0
+attenuation = 0.25

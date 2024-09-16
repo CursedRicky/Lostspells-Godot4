@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://b50wq1m4jej41"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spellSlotGui.gd" id="1_8x3la"]
+[ext_resource type="Texture2D" uid="uid://d24qq7nai5wak" path="res://UI/spellInventory/bg_inventory.png" id="1_bpg4n"]
+[ext_resource type="Texture2D" uid="uid://db2kuo071rftt" path="res://UI/spellInventory/inventory_selected.png" id="3_1phhd"]
+[ext_resource type="Texture2D" uid="uid://cdw6dkv0crsdw" path="res://UI/spellInventory/test.png" id="4_ritia"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="5_l38ls"]
+
+[node name="Slot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_8x3la")
+
+[node name="Under" type="Sprite2D" parent="."]
+texture = ExtResource("1_bpg4n")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Upper" type="Sprite2D" parent="."]
+texture = ExtResource("3_1phhd")
+centered = false
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.901961)
+z_index = 2
+position = Vector2(21.4286, 21.4286)
+texture = ExtResource("4_ritia")
+centered = false
+
+[node name="Name" type="RichTextLabel" parent="Info"]
+clip_contents = false
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 152.0
+offset_bottom = 30.0
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("5_l38ls")
+bbcode_enabled = true
+text = "Name"
+scroll_active = false
+
+[node name="Damage" type="Label" parent="Info"]
+offset_left = 8.57143
+offset_top = 17.1429
+offset_right = 156.571
+offset_bottom = 32.1429
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_l38ls")
+theme_override_font_sizes/font_size = 16
+text = "Damage
+"
+autowrap_mode = 3
+
+[node name="Buff0" type="Label" parent="Info"]
+offset_left = 8.57143
+offset_top = 27.1429
+offset_right = 157.571
+offset_bottom = 42.1429
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_l38ls")
+theme_override_font_sizes/font_size = 16
+text = "Buff0"
+autowrap_mode = 3
+
+[node name="Buff1" type="Label" parent="Info"]
+offset_left = 8.57143
+offset_top = 34.1429
+offset_right = 156.571
+offset_bottom = 49.1429
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_l38ls")
+theme_override_font_sizes/font_size = 16
+text = "Buff1
+"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

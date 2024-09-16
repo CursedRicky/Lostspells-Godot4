@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ccf4347tkltc8"]
+
+[ext_resource type="Script" path="res://spellsEffects/shield.gd" id="1_8rwue"]
+[ext_resource type="Texture2D" uid="uid://b6puuv8tvtb55" path="res://UI/spellInventory/spells/spellsIcon/shield.png" id="2_00sab"]
+
+[resource]
+script = ExtResource("1_8rwue")
+name = "shield"
+damageDescription = "Take half damages"
+buff0 = "Reflect projectile"
+buff1 = ""
+texture = ExtResource("2_00sab")
+cd = 60
+rarity = 1
+manaCost = 10
+healtCost = 0
+isAHealing = false

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://hspbcjei5b8s"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/itemStackGui.gd" id="1_ad78x"]
+[ext_resource type="Texture2D" uid="uid://brvq5pg4gug6e" path="res://UI/spellInventory/spells/spellsIcon/venomHit.png" id="1_o3f6u"]
+[ext_resource type="Texture2D" uid="uid://cws1fxympkbtr" path="res://UI/spellInventory/spells/spellsIcon/spellBorder1.png" id="2_pwkug"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfolq"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_ad78x")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(-7.00355e-07, -7.00355e-07)
+scale = Vector2(1.08333, 1.08333)
+texture = ExtResource("2_pwkug")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gfolq")
+texture = ExtResource("1_o3f6u")

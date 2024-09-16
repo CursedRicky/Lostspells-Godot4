@@ -1,0 +1,133 @@
+[gd_scene load_steps=21 format=3 uid="uid://dxl5kd6b6x110"]
+
+[ext_resource type="Script" path="res://script/Enemy/blackFire.gd" id="1_rsoup"]
+[ext_resource type="Shader" path="res://art/Shader/Dark.gdshader" id="2_lkhn7"]
+[ext_resource type="Texture2D" uid="uid://do3ffcjo1ikvc" path="res://art/Effects/Particle/42.png" id="3_kdpvj"]
+[ext_resource type="PackedScene" uid="uid://0cgjopmw7jb4" path="res://scenes/Box/hit_box.tscn" id="4_vrdqc"]
+[ext_resource type="AudioStream" uid="uid://ceax1qvbmcdpq" path="res://art/Music and Sounds/fireBall.mp3" id="5_esljp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqxsn"]
+shader = ExtResource("2_lkhn7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmpxa"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in6nr"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hppr"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs5gf"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drr06"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcb61"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq8dr"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3ief"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kfv8"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5gil"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg3iv"]
+atlas = ExtResource("3_kdpvj")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ni7iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmpxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in6nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hppr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs5gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drr06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcb61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq8dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3ief")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kfv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5gil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg3iv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwkdq"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ac2j7"]
+radius = 3.0
+
+[node name="BlackFire" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 17
+script = ExtResource("1_rsoup")
+speed = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_dqxsn")
+sprite_frames = SubResource("SpriteFrames_ni7iw")
+autoplay = "default"
+frame_progress = 0.726764
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_xwkdq")
+
+[node name="HitBox" parent="." instance=ExtResource("4_vrdqc")]
+collision_layer = 8
+collision_mask = 8
+damage = 8
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_ac2j7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_esljp")
+volume_db = -10.0
+autoplay = true
+
+[editable path="HitBox"]

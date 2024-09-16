@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxjsrqjijdhls"]
+
+[ext_resource type="Texture2D" uid="uid://dpxgo2hqe7p3i" path="res://art/Dungeons/Dungeon_Tileset.png" id="1_61geh"]
+
+[node name="Web" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_61geh")
+region_enabled = true
+region_rect = Rect2(64, 96, 16, 16)

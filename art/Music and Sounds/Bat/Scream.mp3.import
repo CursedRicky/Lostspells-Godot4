@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dplatuk7sa1v8"
+path="res://.godot/imported/Scream.mp3-d1f0eb6185a6a96a0aa8f62cb71af24f.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Bat/Scream.mp3"
+dest_files=["res://.godot/imported/Scream.mp3-d1f0eb6185a6a96a0aa8f62cb71af24f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

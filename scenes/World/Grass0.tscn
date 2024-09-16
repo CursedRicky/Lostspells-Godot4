@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://4g8bkgf3rtke"]
+
+[ext_resource type="Texture2D" uid="uid://ttiq4wg1ah5j" path="res://art/World/TX Plant.png" id="1_gooyr"]
+[ext_resource type="Shader" path="res://art/Shader/Dark.gdshader" id="1_pct7o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgipn"]
+shader = ExtResource("1_pct7o")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kgipn")
+texture = ExtResource("1_gooyr")
+region_enabled = true
+region_rect = Rect2(0, 384, 32, 32)

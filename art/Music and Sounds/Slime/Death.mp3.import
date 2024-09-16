@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dye1pohvvc167"
+path="res://.godot/imported/Death.mp3-3d6428a017260823e2ac65d65c162c24.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Slime/Death.mp3"
+dest_files=["res://.godot/imported/Death.mp3-3d6428a017260823e2ac65d65c162c24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

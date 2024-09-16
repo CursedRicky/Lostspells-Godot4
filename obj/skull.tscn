@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://tj1kp3but6df"]
+
+[ext_resource type="Texture2D" uid="uid://4oj4crhn62wv" path="res://art/World/Tiles/Objects_separately/Bones_shadow1_2.png" id="1_q2m64"]
+[ext_resource type="Texture2D" uid="uid://b84fkwg61jg4g" path="res://art/Shadows/MediumShadow.png" id="2_pfk42"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qeqer"]
+radius = 7.0
+
+[node name="Skull" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_q2m64")
+
+[node name="MediumShadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 3)
+texture = ExtResource("2_pfk42")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_qeqer")

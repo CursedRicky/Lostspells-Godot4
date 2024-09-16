@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://7cihpv4ptj8o"]
+
+[ext_resource type="PackedScene" uid="uid://yvy45oryk6fp" path="res://UI/spellInventory/hotbarSlot.tscn" id="1_2l8n8"]
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/hotBar.gd" id="1_n6dqa"]
+[ext_resource type="Texture2D" uid="uid://dvmxoy0rds18w" path="res://UI/spellInventory/hotbar_selector.png" id="3_8l83b"]
+
+[node name="HotBar" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 73.0
+offset_bottom = 23.0
+script = ExtResource("1_n6dqa")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 32.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Slot" parent="Container" instance=ExtResource("1_2l8n8")]
+layout_mode = 2
+
+[node name="Slot2" parent="Container" instance=ExtResource("1_2l8n8")]
+layout_mode = 2
+
+[node name="Slot3" parent="Container" instance=ExtResource("1_2l8n8")]
+layout_mode = 2
+
+[node name="Selector" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_8l83b")
+centered = false

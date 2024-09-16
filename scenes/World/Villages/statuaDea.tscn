@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6pgiuokjak4"]
+
+[ext_resource type="Texture2D" uid="uid://mynd33nq3xc8" path="res://art/Villages/TX Props.png" id="1_w40if"]
+[ext_resource type="Texture2D" uid="uid://b84fkwg61jg4g" path="res://art/Shadows/MediumShadow.png" id="2_lqfx8"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w40if")
+region_enabled = true
+region_rect = Rect2(432, 16, 64, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-1, 33)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("2_lqfx8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-18, 33, -14, 37, 12, 36, 17, 32, 18, 17, 12, -6, -12, -6, -19, 16)

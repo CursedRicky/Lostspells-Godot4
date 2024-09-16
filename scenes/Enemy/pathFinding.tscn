@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd7yuyxgwn337"]
+
+[ext_resource type="Script" path="res://script/Enemy/pathFinding.gd" id="1_5ckvh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5ckvh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(0.0627451, 1, 1, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

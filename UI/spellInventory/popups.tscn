@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn2tf2rb48h1s"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/popups.gd" id="1_4upae"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="2_av7nw"]
+
+[node name="Popups" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4upae")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemPopup" type="PopupPanel" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2i(100, 35)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+theme = ExtResource("2_av7nw")
+
+[node name="Name" type="Label" parent="CanvasLayer/ItemPopup/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Mana" type="Label" parent="CanvasLayer/ItemPopup/VBoxContainer"]
+layout_mode = 2
+text = "ManaCost"
+
+[node name="Damage" type="Label" parent="CanvasLayer/ItemPopup/VBoxContainer"]
+layout_mode = 2
+text = "Damage"

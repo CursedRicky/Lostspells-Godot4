@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://hq7adhflmffj"]
+
+[ext_resource type="Script" path="res://spellsEffects/heal.gd" id="1_0obo7"]
+[ext_resource type="Texture2D" uid="uid://ehr24di0tbkq" path="res://UI/spellInventory/spells/spellsIcon/heal.png" id="2_e3vyi"]
+
+[resource]
+script = ExtResource("1_0obo7")
+heal_increase = 40
+name = "heal"
+damageDescription = "+40 HP"
+buff0 = ""
+buff1 = ""
+texture = ExtResource("2_e3vyi")
+cd = 8
+manaCost = 10
+healtCost = 0
+isAHealing = true

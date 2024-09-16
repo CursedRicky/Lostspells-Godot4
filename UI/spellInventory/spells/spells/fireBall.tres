@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=3 format=3 uid="uid://bo1ggy5f71xl2"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spell.gd" id="1_bgusl"]
+[ext_resource type="Texture2D" uid="uid://ehr24di0tbkq" path="res://UI/spellInventory/spells/spellsIcon/heal.png" id="2_iy8nj"]
+
+[resource]
+script = ExtResource("1_bgusl")
+name = "heal"
+texture = ExtResource("2_iy8nj")

@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf7fmk0lek55k"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/InventoryGUI.gd" id="1_78ett"]
+[ext_resource type="Shader" path="res://art/Shader/Blur.gdshader" id="2_vb24k"]
+[ext_resource type="Texture2D" uid="uid://ta2e5qcr8noa" path="res://Inventory/Icons/crit.png" id="3_6jxy5"]
+[ext_resource type="Theme" uid="uid://dxigj16gs6rfw" path="res://UI/tema.tres" id="3_r7w5w"]
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="4_ekm0c"]
+[ext_resource type="Script" path="res://Inventory/Scripts/InventorySlot.gd" id="6_5ya20"]
+[ext_resource type="Script" path="res://Inventory/Scripts/InventoryItem.gd" id="6_506ct"]
+[ext_resource type="Texture2D" uid="uid://bfbs48o5hgq6y" path="res://Inventory/Icons/mana.png" id="6_t0d70"]
+[ext_resource type="Texture2D" uid="uid://7axl80i8qab4" path="res://Inventory/Icons/coins.png" id="7_7ccmc"]
+[ext_resource type="Resource" uid="uid://cfl3rp1wiwu4k" path="res://Inventory/Items/sword.tres" id="8_qm0gf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0y40"]
+shader = ExtResource("2_vb24k")
+shader_parameter/lod = 0.8
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_78ett")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_y0y40")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -65.5
+offset_right = 125.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inv" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 131.0
+offset_top = 35.0
+offset_right = 277.0
+offset_bottom = 147.0
+theme = ExtResource("3_r7w5w")
+columns = 5
+
+[node name="CritIcon" type="TextureRect" parent="."]
+offset_left = 42.0
+offset_top = 131.0
+offset_right = 59.0
+offset_bottom = 148.0
+tooltip_text = "Crit"
+theme = ExtResource("3_r7w5w")
+texture = ExtResource("3_6jxy5")
+
+[node name="Crit" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 135.0
+offset_right = 103.0
+offset_bottom = 158.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_ekm0c")
+text = "100 %"
+
+[node name="ManaIcon" type="TextureRect" parent="."]
+offset_left = 42.0
+offset_top = 112.0
+offset_right = 59.0
+offset_bottom = 129.0
+tooltip_text = "Mana"
+theme = ExtResource("3_r7w5w")
+texture = ExtResource("6_t0d70")
+
+[node name="Mana" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 116.0
+offset_right = 103.0
+offset_bottom = 139.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_ekm0c")
+text = "100"
+
+[node name="CoinsIcon" type="TextureRect" parent="."]
+offset_left = 42.0
+offset_top = 92.0
+offset_right = 59.0
+offset_bottom = 109.0
+tooltip_text = "Oro"
+theme = ExtResource("3_r7w5w")
+texture = ExtResource("7_7ccmc")
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 95.0
+offset_right = 103.0
+offset_bottom = 118.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_ekm0c")
+text = "100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 44.0
+offset_top = 35.0
+offset_right = 84.0
+offset_bottom = 75.0
+theme = ExtResource("3_r7w5w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+script = ExtResource("6_5ya20")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+script = ExtResource("6_506ct")
+data = ExtResource("8_qm0gf")

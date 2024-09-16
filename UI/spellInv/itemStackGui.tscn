@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8c236m2f3c3n"]
+
+[ext_resource type="Texture2D" uid="uid://brvq5pg4gug6e" path="res://spells/spellsIcon/venomHit.png" id="1_o3f6u"]
+[ext_resource type="Script" path="res://itemStackGui.gd" id="2_dq2bn"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("2_dq2bn")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_o3f6u")

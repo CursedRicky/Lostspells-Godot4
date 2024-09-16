@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDatas" load_steps=3 format=3 uid="uid://cfl3rp1wiwu4k"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/ItemData.gd" id="1_pbbia"]
+[ext_resource type="Texture2D" uid="uid://d3pwy3abhgoj2" path="res://art/Items/spadaLunga.png" id="2_528cm"]
+
+[resource]
+script = ExtResource("1_pbbia")
+type = 4
+name = "Spada Lunga"
+description = ""
+texture = ExtResource("2_528cm")

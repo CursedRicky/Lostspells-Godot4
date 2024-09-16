@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0csn00itk648"]
+
+[ext_resource type="Script" path="res://scenes/NPC/witch.gd" id="1_vkpn0"]
+[ext_resource type="Shader" path="res://art/Shader/fireDissolve.gdshader" id="2_dcist"]
+[ext_resource type="Texture2D" uid="uid://baopvsigwkuyj" path="res://art/Npc/B_witch_idle.png" id="2_vmbdw"]
+[ext_resource type="Texture2D" uid="uid://05rec4fcg4ka" path="res://art/Npc/witch/B_witch_idle_n.png" id="3_sq68q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2ghs"]
+shader = ExtResource("2_dcist")
+shader_parameter/sensitivity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4eah"]
+size = Vector2(11.25, 22.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hrpa"]
+radius = 47.5164
+
+[sub_resource type="Animation" id="Animation_nvn14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/sensitivity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kv2m5"]
+resource_name = "shade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/sensitivity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7irj"]
+_data = {
+"RESET": SubResource("Animation_nvn14"),
+"shade_out": SubResource("Animation_kv2m5")
+}
+
+[sub_resource type="Animation" id="Animation_empy0"]
+resource_name = "defualt"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_fnk76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcio7"]
+_data = {
+"RESET": SubResource("Animation_fnk76"),
+"defualt": SubResource("Animation_empy0")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ouf6n"]
+shader = ExtResource("2_dcist")
+shader_parameter/sensitivity = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fq4vp"]
+diffuse_texture = ExtResource("2_vmbdw")
+normal_texture = ExtResource("3_sq68q")
+
+[node name="Witch" type="StaticBody2D"]
+z_index = 2
+material = SubResource("ShaderMaterial_k2ghs")
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_vkpn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.625, 1.25)
+shape = SubResource("RectangleShape2D_n4eah")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1hrpa")
+debug_color = Color(0.783868, 0.333588, 0.710875, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k7irj")
+}
+
+[node name="Witch" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vcio7")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ouf6n")
+texture = SubResource("CanvasTexture_fq4vp")
+vframes = 6
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

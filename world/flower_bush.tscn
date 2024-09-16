@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://bjnmpq6wnjh22"]
+
+[ext_resource type="Script" path="res://world/bush.gd" id="1_dt5b5"]
+[ext_resource type="PackedScene" uid="uid://8mk0il1s3w4j" path="res://scenes/Box/New/hurt_box.tscn" id="2_ccfbk"]
+[ext_resource type="Texture2D" uid="uid://c83rtyuvufm68" path="res://art/World/Tiles/Vegetation/Bush/spr_bush_breaking_flower.png" id="3_5tnhf"]
+[ext_resource type="Texture2D" uid="uid://dbxqop8tdsxhf" path="res://art/World/Tiles/Vegetation/Bush/spr_bush_flower.png" id="4_m8u3k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ggom"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6knbv"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykvfq"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvhxt"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hlfy"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj2gk"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10n26"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0vjc"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjagw"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sykwj"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y72ln"]
+atlas = ExtResource("3_5tnhf")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmr7u"]
+atlas = ExtResource("4_m8u3k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44ji0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6knbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykvfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvhxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hlfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj2gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10n26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0vjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjagw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sykwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y72ln")
+}],
+"loop": false,
+"name": &"breaking",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmr7u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FlowerBush" type="Node2D"]
+script = ExtResource("1_dt5b5")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_ccfbk")]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_4ggom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_44ji0")
+autoplay = "default"
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

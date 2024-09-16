@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs2rh788andaa"]
+
+[ext_resource type="Script" path="res://script/interaction_area.gd" id="1_h4ee7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0lyv"]
+radius = 7.07107
+
+[node name="InteractionArea" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_h4ee7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a0lyv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

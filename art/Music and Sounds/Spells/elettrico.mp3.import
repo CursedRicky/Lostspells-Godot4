@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du7k4agq2rwyt"
+path="res://.godot/imported/elettrico.mp3-74a35c05af3c3ce0d24167b38c221c89.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Spells/elettrico.mp3"
+dest_files=["res://.godot/imported/elettrico.mp3-74a35c05af3c3ce0d24167b38c221c89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

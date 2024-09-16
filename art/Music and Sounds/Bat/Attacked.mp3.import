@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chwcwxwxiaci5"
+path="res://.godot/imported/Attacked.mp3-c111787a275335effc5ef20793580ce4.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/Bat/Attacked.mp3"
+dest_files=["res://.godot/imported/Attacked.mp3-c111787a275335effc5ef20793580ce4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

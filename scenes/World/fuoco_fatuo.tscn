@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxndeqheyaykm"]
+
+[ext_resource type="AudioStream" uid="uid://csnenf8u42fmw" path="res://art/Music and Sounds/fuoco.mp3" id="1_ohpuw"]
+
+[sub_resource type="Gradient" id="Gradient_shwwu"]
+offsets = PackedFloat32Array(0, 0.689394)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ostk8"]
+gradient = SubResource("Gradient_shwwu")
+width = 25
+height = 25
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_rogej"]
+offsets = PackedFloat32Array(0, 0.445, 1)
+colors = PackedColorArray(0.270434, 0.972671, 0.552092, 1, 0.117249, 0.882813, 0.86487, 1, 0.0546875, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tfk4i"]
+gradient = SubResource("Gradient_rogej")
+
+[sub_resource type="Curve" id="Curve_hie1x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.285714), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_54oh0"]
+curve = SubResource("Curve_hie1x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jmlpx"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 90.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_54oh0")
+color_ramp = SubResource("GradientTexture1D_tfk4i")
+turbulence_enabled = true
+turbulence_noise_scale = 3.0
+
+[node name="FuocoFatuo" type="PointLight2D"]
+process_mode = 3
+color = Color(0, 0.705882, 0.819608, 1)
+texture = SubResource("GradientTexture2D_ostk8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_jmlpx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ohpuw")
+volume_db = -1.68
+autoplay = true
+max_distance = 64.0
+attenuation = 0.25

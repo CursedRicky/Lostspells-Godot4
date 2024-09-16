@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bye6njd0cuf3n"]
+
+[ext_resource type="Texture2D" uid="uid://cvyyt64tmybk3" path="res://art/World/Tree.png" id="1_pbh5v"]
+[ext_resource type="Texture2D" uid="uid://dpqeg5l0shcvh" path="res://art/Shadows/LargeShadow.png" id="2_ivqjb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqg64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6erib"]
+radius = 5.0
+height = 18.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_vqg64")
+position = Vector2(0, -50)
+texture = ExtResource("1_pbh5v")
+region_enabled = true
+region_rect = Rect2(288, 16, 96, 144)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Sprite2D"]
+show_behind_parent = true
+position = Vector2(9.53674e-07, 57)
+scale = Vector2(1.6625, 1.6625)
+texture = ExtResource("2_ivqjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_6erib")

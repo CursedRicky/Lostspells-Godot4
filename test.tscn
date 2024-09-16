@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://4xfnai8j3bf"]
+
+[ext_resource type="PackedScene" uid="uid://beu4jxm6gcnyq" path="res://player/playerN.tscn" id="1_hq0t7"]
+[ext_resource type="PackedScene" uid="uid://bgbreittsjwu1" path="res://scenes/Items/healtPotionItem.tscn" id="3_ny8cw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" parent="." instance=ExtResource("3_ny8cw")]
+position = Vector2(250, 99)
+
+[node name="Player" parent="." instance=ExtResource("1_hq0t7")]
+position = Vector2(189, 114)

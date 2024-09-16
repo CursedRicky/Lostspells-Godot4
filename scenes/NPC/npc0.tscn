@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=3 uid="uid://beslmpai2iluf"]
+
+[ext_resource type="Script" path="res://script/NPC/npc.gd" id="1_busah"]
+[ext_resource type="Texture2D" uid="uid://01nx0yhw4yuc" path="res://art/Npc/_srw_free_character_1-3.png" id="1_d17my"]
+[ext_resource type="Texture2D" uid="uid://b84fkwg61jg4g" path="res://art/Shadows/MediumShadow.png" id="2_kefh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydkkx"]
+atlas = ExtResource("1_d17my")
+region = Rect2(48, 0, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d6le"]
+atlas = ExtResource("1_d17my")
+region = Rect2(0, 120, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vupd"]
+atlas = ExtResource("1_d17my")
+region = Rect2(48, 120, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmmma"]
+atlas = ExtResource("1_d17my")
+region = Rect2(96, 120, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xo61"]
+atlas = ExtResource("1_d17my")
+region = Rect2(0, 0, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovfbq"]
+atlas = ExtResource("1_d17my")
+region = Rect2(48, 0, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lvyt"]
+atlas = ExtResource("1_d17my")
+region = Rect2(96, 0, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqbno"]
+atlas = ExtResource("1_d17my")
+region = Rect2(0, 180, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7vra"]
+atlas = ExtResource("1_d17my")
+region = Rect2(48, 180, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43yfl"]
+atlas = ExtResource("1_d17my")
+region = Rect2(96, 180, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lffmp"]
+atlas = ExtResource("1_d17my")
+region = Rect2(0, 60, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66m8h"]
+atlas = ExtResource("1_d17my")
+region = Rect2(48, 60, 48, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo4mw"]
+atlas = ExtResource("1_d17my")
+region = Rect2(96, 60, 48, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5v05k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydkkx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d6le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vupd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmmma")
+}],
+"loop": true,
+"name": &"walk_e",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xo61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovfbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lvyt")
+}],
+"loop": true,
+"name": &"walk_n",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqbno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43yfl")
+}],
+"loop": true,
+"name": &"walk_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lffmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66m8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo4mw")
+}],
+"loop": true,
+"name": &"walk_w",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u3obc"]
+radius = 3.0
+height = 12.0
+
+[node name="npc" type="CharacterBody2D"]
+script = ExtResource("1_busah")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_5v05k")
+animation = &"idle"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-2.86102e-06, 26.6667)
+scale = Vector2(2.35, 2.35)
+texture = ExtResource("2_kefh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_u3obc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="SpellInventory" load_steps=40 format=3 uid="uid://d3v8jth42qigp"]
+
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/spellInventory.gd" id="1_cdlnf"]
+[ext_resource type="Script" path="res://UI/spellInventory/inventory/inventorySlot.gd" id="2_txrih"]
+[ext_resource type="Resource" uid="uid://hq7adhflmffj" path="res://UI/spellInventory/spells/spells/heal.tres" id="3_sh16d"]
+[ext_resource type="Resource" uid="uid://bxkyo0tqnyykc" path="res://UI/spellInventory/spells/spells/blackHole.tres" id="4_2ed7x"]
+[ext_resource type="Resource" uid="uid://ccf4347tkltc8" path="res://UI/spellInventory/spells/spells/shield.tres" id="5_sccgk"]
+[ext_resource type="Resource" uid="uid://blq07vaaovi61" path="res://UI/spellInventory/spells/spells/venomtouch.tres" id="6_120le"]
+[ext_resource type="Resource" uid="uid://bcs0or2u4omjg" path="res://UI/spellInventory/spells/spells/ghost.tres" id="6_g71ei"]
+[ext_resource type="Resource" uid="uid://d27k6yggbqth2" path="res://UI/spellInventory/spells/spells/berserk.tres" id="7_d751q"]
+[ext_resource type="Resource" uid="uid://2v2y7japop4p" path="res://UI/spellInventory/spells/spells/wave.tres" id="7_g04rh"]
+[ext_resource type="Resource" uid="uid://ddw2jduo1khq4" path="res://UI/spellInventory/spells/spells/iceLance.tres" id="8_hriex"]
+[ext_resource type="Resource" uid="uid://bokcydxxr503n" path="res://UI/spellInventory/spells/spells/soulShifon.tres" id="10_swd44"]
+[ext_resource type="Resource" uid="uid://bufgi4885o5bh" path="res://UI/spellInventory/spells/spells/holyArrow.tres" id="11_hhwlv"]
+
+[sub_resource type="Resource" id="Resource_gepdt"]
+script = ExtResource("2_txrih")
+item = ExtResource("3_sh16d")
+
+[sub_resource type="Resource" id="Resource_0vghm"]
+script = ExtResource("2_txrih")
+item = ExtResource("4_2ed7x")
+
+[sub_resource type="Resource" id="Resource_agq40"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_jsayk"]
+script = ExtResource("2_txrih")
+item = ExtResource("6_g71ei")
+
+[sub_resource type="Resource" id="Resource_mfiex"]
+script = ExtResource("2_txrih")
+item = ExtResource("7_g04rh")
+
+[sub_resource type="Resource" id="Resource_clo7s"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_yapyd"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_ilvfx"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_0cs87"]
+script = ExtResource("2_txrih")
+item = ExtResource("5_sccgk")
+
+[sub_resource type="Resource" id="Resource_uiyds"]
+script = ExtResource("2_txrih")
+item = ExtResource("8_hriex")
+
+[sub_resource type="Resource" id="Resource_rt5qu"]
+script = ExtResource("2_txrih")
+item = ExtResource("6_120le")
+
+[sub_resource type="Resource" id="Resource_bkx0w"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_ux1l8"]
+script = ExtResource("2_txrih")
+item = ExtResource("10_swd44")
+
+[sub_resource type="Resource" id="Resource_mqdvd"]
+script = ExtResource("2_txrih")
+item = ExtResource("7_d751q")
+
+[sub_resource type="Resource" id="Resource_djlti"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_unuok"]
+script = ExtResource("2_txrih")
+item = ExtResource("11_hhwlv")
+
+[sub_resource type="Resource" id="Resource_5skt6"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_qqprh"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_lcr0d"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_2xcmt"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_wmkgt"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_bvg8o"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_28rm3"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_5onfq"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_p3gf0"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_yyere"]
+script = ExtResource("2_txrih")
+
+[sub_resource type="Resource" id="Resource_xkuhk"]
+script = ExtResource("2_txrih")
+
+[resource]
+script = ExtResource("1_cdlnf")
+slots = Array[ExtResource("2_txrih")]([SubResource("Resource_gepdt"), SubResource("Resource_0vghm"), SubResource("Resource_agq40"), SubResource("Resource_jsayk"), SubResource("Resource_mfiex"), SubResource("Resource_clo7s"), SubResource("Resource_yapyd"), SubResource("Resource_ilvfx"), SubResource("Resource_0cs87"), SubResource("Resource_uiyds"), SubResource("Resource_rt5qu"), SubResource("Resource_bkx0w"), SubResource("Resource_ux1l8"), SubResource("Resource_mqdvd"), SubResource("Resource_djlti"), SubResource("Resource_unuok"), SubResource("Resource_5skt6"), SubResource("Resource_qqprh"), SubResource("Resource_lcr0d"), SubResource("Resource_2xcmt"), SubResource("Resource_wmkgt"), SubResource("Resource_bvg8o"), SubResource("Resource_28rm3"), SubResource("Resource_5onfq"), SubResource("Resource_p3gf0"), SubResource("Resource_yyere"), SubResource("Resource_xkuhk")])

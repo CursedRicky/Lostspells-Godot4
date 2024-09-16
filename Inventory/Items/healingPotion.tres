@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDatas" load_steps=3 format=3 uid="uid://bj17lgliwcm8l"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/ItemData.gd" id="1_qydua"]
+[ext_resource type="Texture2D" uid="uid://dvsln4lqhkcgr" path="res://art/Items/healingPotion.png" id="2_v2i5w"]
+
+[resource]
+script = ExtResource("1_qydua")
+type = 5
+name = "Pozione Di Cura"
+description = "+ 50 HP"
+texture = ExtResource("2_v2i5w")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://biofy5t6ndqpb"]
+
+[ext_resource type="Script" path="res://script/World/Home.gd" id="1_0ta7e"]
+[ext_resource type="Texture2D" uid="uid://dpqeg5l0shcvh" path="res://art/Shadows/LargeShadow.png" id="2_gajtd"]
+[ext_resource type="Texture2D" uid="uid://ba05ebuoainc7" path="res://art/Villages/nanasa.png" id="2_yjrly"]
+[ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="3_m1bge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m572r"]
+size = Vector2(87, 67)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41eek"]
+radius = 7.0
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-1, -7)
+script = ExtResource("1_0ta7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 23)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_yjrly")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, 18)
+scale = Vector2(2.02344, 1.725)
+texture = ExtResource("2_gajtd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0.5, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 19.5)
+shape = SubResource("RectangleShape2D_m572r")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 51)
+shape = SubResource("CircleShape2D_41eek")
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+offset_left = -116.0
+offset_top = 19.0
+offset_right = 114.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_m1bge")
+text = "[INVIO] per entrare"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UscitaCEsterna" type="Node2D" parent="."]
+position = Vector2(1, 84)
+
+[node name="internoCEsterna" type="Marker2D" parent="UscitaCEsterna"]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

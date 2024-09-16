@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b23cdko36rerg"]
+
+[ext_resource type="Texture2D" uid="uid://ttiq4wg1ah5j" path="res://art/World/TX Plant.png" id="1_lmfar"]
+[ext_resource type="Texture2D" uid="uid://dpqeg5l0shcvh" path="res://art/Shadows/LargeShadow.png" id="3_mxtdp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26yqe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2u3ht"]
+radius = 7.0
+height = 14.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_26yqe")
+texture = ExtResource("1_lmfar")
+region_enabled = true
+region_rect = Rect2(144, 176, 64, 64)
+
+[node name="LargeShadow" type="Sprite2D" parent="StaticBody2D/Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, 7)
+texture = ExtResource("3_mxtdp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2u3ht")
