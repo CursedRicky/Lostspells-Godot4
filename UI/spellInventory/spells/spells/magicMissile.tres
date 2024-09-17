@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhvihev1r20gj"]
+
+[ext_resource type="Script" path="res://spellsEffects/magicMissile.gd" id="1_7htja"]
+[ext_resource type="Texture2D" uid="uid://chbbmxd0myrwk" path="res://UI/spellInventory/spells/spellsIcon/fireBall.png" id="2_3y5iv"]
+
+[resource]
+script = ExtResource("1_7htja")
+name = "Magic Missile"
+damageDescription = "base damage: 20"
+buff0 = ""
+buff1 = ""
+texture = ExtResource("2_3y5iv")
+cd = 4
+rarity = 0
+manaCost = 5
+healtCost = 0
+isAHealing = false
