@@ -16,7 +16,7 @@ func seeker_setup():
 		navigation_agent_2d.target_position = target.global_position
 
 func _physics_process(delta):
-	
+	print(Global.key)
 	if Global.casting :
 		Global.casting = false
 		$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)

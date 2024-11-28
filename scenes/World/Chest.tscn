@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6g12kvhd5owi"]
+[gd_scene load_steps=21 format=3 uid="uid://c6g12kvhd5owi"]
 
 [ext_resource type="Script" path="res://script/World/Chest.gd" id="1_88y3g"]
 [ext_resource type="PackedScene" uid="uid://bgbreittsjwu1" path="res://scenes/Items/healtPotionItem.tscn" id="2_ntbe1"]
 [ext_resource type="Texture2D" uid="uid://sy0r6tr3i48h" path="res://dungeon/Objects and buildings/Animated sprites/Animated Chest/chest_opening.png" id="3_6rdnj"]
 [ext_resource type="FontFile" uid="uid://bqnjxpucg2re4" path="res://art/Font/font1.ttf" id="4_3un0a"]
-[ext_resource type="Texture2D" uid="uid://dpqeg5l0shcvh" path="res://art/Shadows/LargeShadow.png" id="4_gr8iq"]
 [ext_resource type="AudioStream" uid="uid://bmkp6if6nfu40" path="res://art/Music and Sounds/519630__mrthenoronha__open-treasure-chest-8-bit.wav" id="6_her8f"]
 
 [sub_resource type="Animation" id="Animation_m536e"]
@@ -196,11 +195,6 @@ theme_override_fonts/font = ExtResource("4_3un0a")
 text = "[INVIO] per aprire"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(0, 13)
-texture = ExtResource("4_gr8iq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_her8f")

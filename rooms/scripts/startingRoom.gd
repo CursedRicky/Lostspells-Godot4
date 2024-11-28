@@ -6,7 +6,7 @@ func _ready():
 	
 func generate_room():
 	randomize()
-	var id = randi_range(4, 4)
+	var id = randi_range(8, 8)
 	
 	if Global.roomToMade > 1:
 		var r = load("res://rooms/roomsScene/room_" + str(id) + ".tscn").instantiate()

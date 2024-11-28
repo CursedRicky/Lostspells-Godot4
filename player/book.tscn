@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://ya1vi584fqht"]
+[gd_scene load_steps=33 format=3 uid="uid://ya1vi584fqht"]
 
 [ext_resource type="Script" path="res://player/Book.gd" id="1_m6rp2"]
 [ext_resource type="Texture2D" uid="uid://b5sub7j5ss1h4" path="res://art/Player/book/Idle1.png" id="2_21pik"]
+[ext_resource type="Shader" path="res://art/Shader/Dark.gdshader" id="2_p2qtn"]
 [ext_resource type="Texture2D" uid="uid://thoyykfb0aav" path="res://art/Player/book/OutHeavyCast/OutHeavyCast1.png" id="2_rcv6t"]
 [ext_resource type="Texture2D" uid="uid://67u6cv6lvgjh" path="res://art/Player/book/Idle2.png" id="3_5kwg8"]
 [ext_resource type="Texture2D" uid="uid://dljlruiyle7dx" path="res://art/Player/book/OutHeavyCast/OutHeavyCast2.png" id="3_gag8q"]
@@ -27,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://b0ctwm8j2uwya" path="res://art/Player/book/ToHeavyCast/ToHeavyCast7.png" id="16_6ufkp"]
 [ext_resource type="Texture2D" uid="uid://dp5dfrfaiyt5" path="res://art/Player/book/ToHeavyCast/ToHeavyCast8.png" id="17_plgot"]
 [ext_resource type="AudioStream" uid="uid://dom7dogm36tyd" path="res://art/Music and Sounds/Book.mp3" id="27_w4lca"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufw6t"]
+shader = ExtResource("2_p2qtn")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ojq4u"]
 animations = [{
@@ -157,6 +161,7 @@ script = ExtResource("1_m6rp2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 3
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_ufw6t")
 sprite_frames = SubResource("SpriteFrames_ojq4u")
 animation = &"OutCast"
 autoplay = "default"

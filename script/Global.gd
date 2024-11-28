@@ -12,6 +12,7 @@ var casting = false
 
 var key = 10
 
+var selectorValue = 0
 
 var cameraFollow = true
 var canAttack = true

@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="SpellItem" load_steps=3 format=3 uid="uid://2v2y7japop4p"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://2v2y7japop4p"]
 
-[ext_resource type="Script" path="res://UI/spellInventory/inventory/spell.gd" id="1_ruvrf"]
+[ext_resource type="Script" path="res://spellsEffects/wave.gd" id="1_y7ual"]
 [ext_resource type="Texture2D" uid="uid://dp7ualbfygcp5" path="res://UI/spellInventory/spells/spellsIcon/wave.png" id="2_lrif8"]
 
 [resource]
-script = ExtResource("1_ruvrf")
-name = "wave"
-damageDescription = ""
-buff0 = ""
+script = ExtResource("1_y7ual")
+heal_increase = 1
+name = "Wave"
+damageDescription = "base damage: 30"
+buff0 = "high knockback"
 buff1 = ""
 texture = ExtResource("2_lrif8")
-cd = 0
-rarity = 3
-manaCost = 10
+cd = 2
+rarity = 1
+manaCost = 1
 healtCost = 0
 isAHealing = false

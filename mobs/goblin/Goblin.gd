@@ -70,6 +70,7 @@ func _process(delta: float):
 				$Sprite2D.flip_h = true
 			else : 
 				$Sprite2D.flip_h = false
+
 	if chase and canChase:
 		velocity = (knockback * delta + dir.normalized()) * speed
 	else: 
@@ -158,7 +159,8 @@ func choose(array):
 	return array.front()
 
 func _on_moving_timer_timeout():
-	movingDir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)])
+	movingDir = Vector2.ZERO
+	#movingDir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)])
 	$MovingTimer/StopMoving.wait_time = randi_range(1,3)
 	$MovingTimer/StopMoving.start()
 

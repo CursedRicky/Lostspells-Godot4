@@ -11,8 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and enter:
-		Global.healtPotion += 1
-		queue_free()
+		pass
 
 func _on_animator_timeout():
 	animation()
@@ -26,7 +25,8 @@ func animation():
 	tween.tween_interval(2)
 
 func _on_area_2d_area_entered(area):
-	enter = true
+	Global.healtPotion += 1
+	queue_free()
 
 func _on_area_2d_area_exited(area):
 	enter = false

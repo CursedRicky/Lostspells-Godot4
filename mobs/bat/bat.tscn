@@ -360,6 +360,7 @@ shape = SubResource("CapsuleShape2D_25hc2")
 position = Vector2(1.86264e-09, -14)
 rotation = -4.70017
 shape = SubResource("CapsuleShape2D_0fu2k")
+debug_color = Color(0.671596, 0.505646, 0.145847, 0.42)
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

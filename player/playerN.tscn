@@ -1,4 +1,4 @@
-[gd_scene load_steps=306 format=3 uid="uid://beu4jxm6gcnyq"]
+[gd_scene load_steps=310 format=3 uid="uid://beu4jxm6gcnyq"]
 
 [ext_resource type="Script" path="res://PlayerNew.gd" id="1_t67cb"]
 [ext_resource type="Resource" uid="uid://d3v8jth42qigp" path="res://player/spellInventory.tres" id="2_h4c1u"]
@@ -9,12 +9,15 @@
 [ext_resource type="Shader" path="res://art/Shader/player.gdshader" id="4_le2e1"]
 [ext_resource type="Texture2D" uid="uid://yqo4cgn1rvha" path="res://player/Front animations/spr_player_front_attack.png" id="4_qsslo"]
 [ext_resource type="Texture2D" uid="uid://bayld53kccg7o" path="res://player/Side animations/Left/spr_player_left_attack.png" id="5_4i5jl"]
+[ext_resource type="PackedScene" uid="uid://vn702ur4h4ca" path="res://spellsEffects/projectiles/magicMissile.tscn" id="5_f3gvf"]
 [ext_resource type="Texture2D" uid="uid://bad8hkltb2i3a" path="res://player/Side animations/Left/spr_player_left_idle.png" id="5_hcm0m"]
 [ext_resource type="Texture2D" uid="uid://c6urj4p1rev3w" path="res://player/Side animations/Right/spr_player_right_idle.png" id="6_2y4cu"]
 [ext_resource type="AudioStream" uid="uid://b2jnaemac1erk" path="res://art/Music and Sounds/Swipe.mp3" id="6_75262"]
 [ext_resource type="Texture2D" uid="uid://m6xf0a4fh4h3" path="res://player/Side animations/Right/spr_player_right_attack.png" id="6_gf8xv"]
+[ext_resource type="PackedScene" uid="uid://ciertvwukivvo" path="res://spellsEffects/projectiles/wave.tscn" id="6_hw2lt"]
 [ext_resource type="AudioStream" uid="uid://c16bshuqo1tjh" path="res://art/Music and Sounds/Evade.wav" id="7_5jg08"]
 [ext_resource type="Texture2D" uid="uid://dmy0udn7yf4iy" path="res://player/Back animations/spr_player_back_attack.png" id="7_o4fjq"]
+[ext_resource type="PackedScene" uid="uid://0xgpkvd1supw" path="res://spellsEffects/projectiles/tentaclesShot.tscn" id="7_p1pv0"]
 [ext_resource type="Texture2D" uid="uid://dml0qop8ga3mc" path="res://player/Back animations/spr_player_back_idle.png" id="7_pfhpg"]
 [ext_resource type="Texture2D" uid="uid://b3dggwx7yjcnw" path="res://player/Front animations/spr_player_front_walk.png" id="8_6hcff"]
 [ext_resource type="PackedScene" uid="uid://dpg8igdyy7wcb" path="res://scenes/Box/New/hitBox.tscn" id="8_26ufw"]
@@ -37,17 +40,18 @@
 [ext_resource type="Texture2D" uid="uid://dvsln4lqhkcgr" path="res://art/Items/healingPotion.png" id="21_u774q"]
 [ext_resource type="Texture2D" uid="uid://bufdvxbutlum1" path="res://player/Side animations/Right/spr_player_right_dodgeroll.png" id="21_ydu2p"]
 [ext_resource type="Script" path="res://script/Player/healtBar.gd" id="23_swmk0"]
+[ext_resource type="Script" path="res://player/Sprite2D.gd" id="26_ckprq"]
 [ext_resource type="Script" path="res://script/Player/manaBar.gd" id="26_x2u3d"]
 [ext_resource type="Script" path="res://script/Player/lvlBar.gd" id="28_2gmdc"]
 [ext_resource type="Script" path="res://script/Player/coins.gd" id="29_pwdms"]
 [ext_resource type="Script" path="res://script/Player/soulsDisplay.gd" id="31_i5rdd"]
+[ext_resource type="Texture2D" uid="uid://33ig48rvwn3p" path="res://UI/spellInventory/spr_dialogue_box_withoutstartingpoint_9slice.png" id="32_eqxos"]
 [ext_resource type="Texture2D" uid="uid://gg5p8it85jsq" path="res://Inventory/Icons/soul.png" id="32_hskke"]
 [ext_resource type="PackedScene" uid="uid://d0f4asswyasv2" path="res://UI/statsMenu.tscn" id="33_mtsfi"]
 [ext_resource type="PackedScene" uid="uid://ds6pkq4ncpu5a" path="res://UI/PauseMenu.tscn" id="34_y3k0w"]
 [ext_resource type="AudioStream" uid="uid://de008nodasn3x" path="res://art/Music and Sounds/Hurt.wav" id="35_jynjh"]
 [ext_resource type="AudioStream" uid="uid://p2gxduj1ld4d" path="res://art/Music and Sounds/souls.mp3" id="40_g1hyu"]
 [ext_resource type="Texture2D" uid="uid://bo8y85gsg4vvi" path="res://art/Effects/Particle/souls.png" id="41_7ml5e"]
-[ext_resource type="Texture2D" uid="uid://c7by7vlf6pfax" path="res://UI/Textures/Player interface/Player Status/spr_item_slot.png" id="46_snqwb"]
 [ext_resource type="Texture2D" uid="uid://cv4oab5su2l83" path="res://UI/Textures/Player interface/Player Status/single size player status/spr_player_status_healthbar_bk.png" id="47_54s7r"]
 [ext_resource type="PackedScene" uid="uid://7cihpv4ptj8o" path="res://UI/spellInventory/hotBar.tscn" id="47_711op"]
 [ext_resource type="Texture2D" uid="uid://cm1v5cqquhovu" path="res://script/Player/sprite.png" id="47_qmy3d"]
@@ -82,8 +86,11 @@ shader_parameter/eye = null
 shader_parameter/white = null
 shader_parameter/sword = Color(1, 1, 1, 1)
 shader_parameter/sangue = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
-shader_parameter/capelli = null
+shader_parameter/capelli = Color(0, 0, 0, 1)
 shader_parameter/newCapelli = null
+shader_parameter/pelle0 = Color(0.98, 0.79772, 0.6762, 1)
+shader_parameter/pelle1 = Color(0.882353, 0.580392, 0.45098, 1)
+shader_parameter/selector = 11
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdsse"]
 atlas = ExtResource("4_qsslo")
@@ -2294,6 +2301,9 @@ spellInventory = ExtResource("2_h4c1u")
 gun = NodePath("Gun")
 freezingDart = ExtResource("54_ps4bd")
 holyArrow = ExtResource("4_erc0j")
+magicMissile = ExtResource("5_f3gvf")
+waveScene = ExtResource("6_hw2lt")
+voidTentacleScene = ExtResource("7_p1pv0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.1, 1.1)
@@ -2329,6 +2339,7 @@ sprite_frames = SubResource("SpriteFrames_hba1j")
 animation = &"Idle_Bot"
 autoplay = "Idle_Bot"
 speed_scale = 0.8
+script = ExtResource("26_ckprq")
 
 [node name="AnimationTree" type="AnimationTree" parent="DestroyOnDeath"]
 root_node = NodePath("../..")
@@ -2354,11 +2365,12 @@ gizmo_extents = 8.0
 [node name="hitBox" parent="DestroyOnDeath/HitBoxPivot" instance=ExtResource("8_26ufw")]
 position = Vector2(1.87417, 5.43595)
 collision_layer = 16
-damage = 25
+damage = 20
 canCrit = true
 knockback = 200
 
 [node name="CollisionShape2D" parent="DestroyOnDeath/HitBoxPivot/hitBox" index="0"]
+visible = false
 position = Vector2(9, -7)
 shape = SubResource("CapsuleShape2D_t8glg")
 debug_color = Color(0.932889, 2.22364e-05, 0.646904, 0.42)
@@ -2402,17 +2414,24 @@ offset_bottom = 40.0
 scale = Vector2(0.9, 0.9)
 
 [node name="Potion" type="Panel" parent="Barre/hideOnPause"]
+self_modulate = Color(1, 1, 1, 0)
 z_index = 10
 layout_mode = 0
-offset_left = 42.2222
-offset_top = 156.0
-offset_right = 42.2222
-offset_bottom = 159.0
+offset_left = 144.444
+offset_top = 163.333
+offset_right = 144.444
+offset_bottom = 166.333
+scale = Vector2(0.65, 0.65)
 
 [node name="Inventory9Slices3" type="Sprite2D" parent="Barre/hideOnPause/Potion"]
 position = Vector2(294.077, 25.0774)
 scale = Vector2(1.13954, 1.13954)
-texture = ExtResource("46_snqwb")
+texture = ExtResource("32_eqxos")
+
+[node name="HealingPotion" type="Sprite2D" parent="Barre/hideOnPause/Potion"]
+position = Vector2(294.017, 25.641)
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("21_u774q")
 
 [node name="Control" parent="Barre/hideOnPause/Potion" node_paths=PackedStringArray("player", "healingPart") instance=ExtResource("10_ogeat")]
 layout_mode = 1
@@ -2431,6 +2450,7 @@ healingPart = NodePath("../../../../DestroyOnDeath/RegenParticle")
 visible = false
 
 [node name="Key" parent="Barre/hideOnPause/Potion/Control" index="1"]
+visible = false
 offset_left = 27.1429
 offset_top = 37.1429
 offset_right = 67.1429
@@ -2449,25 +2469,22 @@ wait_time = 20.0
 one_shot = true
 
 [node name="Panel" parent="Barre/hideOnPause/Potion/Control" index="4"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
 offset_bottom = 48.0
 
-[node name="HealingPotion" type="Sprite2D" parent="Barre/hideOnPause/Potion/Control"]
-position = Vector2(31.4286, 30)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("21_u774q")
-
 [node name="Quantity" type="Label" parent="Barre/hideOnPause/Potion/Control"]
 layout_mode = 0
-offset_left = 45.7143
-offset_top = 38.5714
-offset_right = 85.7143
-offset_bottom = 61.5714
+offset_left = 4.59101
+offset_top = 44.5543
+offset_right = 44.591
+offset_bottom = 67.5543
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("11_1qb6e")
 text = "0"
+horizontal_alignment = 1
 
 [node name="Regen" type="Timer" parent="Barre/hideOnPause/Potion/Control"]
 wait_time = 10.0
@@ -2740,7 +2757,7 @@ libraries = {
 
 [node name="Gun" type="Node2D" parent="."]
 show_behind_parent = true
-position = Vector2(0.550041, -9.37029)
+position = Vector2(-0.00180483, -1.99199)
 script = ExtResource("53_lb6kv")
 bullet = ExtResource("54_ps4bd")
 
@@ -2850,6 +2867,7 @@ collision_layer = 0
 collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpellInvDet"]
+visible = false
 position = Vector2(-0.227539, 0.386726)
 shape = SubResource("CircleShape2D_ghy6r")
 debug_color = Color(0.743862, 0.389321, 0.659935, 0.42)

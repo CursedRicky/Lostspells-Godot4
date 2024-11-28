@@ -1,0 +1,101 @@
+[gd_scene load_steps=23 format=3 uid="uid://blwbp1w5ppqff"]
+
+[ext_resource type="Texture2D" uid="uid://d28v58fyauvgh" path="res://art/Effects/volcano/Volcano(NoGlow)1.png" id="1_c7www"]
+[ext_resource type="Texture2D" uid="uid://b4msuycb6ocyn" path="res://art/Effects/volcano/Volcano(NoGlow)2.png" id="2_p7tli"]
+[ext_resource type="Texture2D" uid="uid://dp56niqcifa4f" path="res://art/Effects/volcano/Volcano(NoGlow)3.png" id="3_grkbb"]
+[ext_resource type="Texture2D" uid="uid://dq8af3q3fqsob" path="res://art/Effects/volcano/Volcano(NoGlow)4.png" id="4_q4ue8"]
+[ext_resource type="Texture2D" uid="uid://dsmf01v05j0fj" path="res://art/Effects/volcano/Volcano(NoGlow)5.png" id="5_1dmj6"]
+[ext_resource type="Texture2D" uid="uid://2mmsfg0tati6" path="res://art/Effects/volcano/Volcano(NoGlow)6.png" id="6_kc4ap"]
+[ext_resource type="Texture2D" uid="uid://dtjc0ufvxn4lp" path="res://art/Effects/volcano/Volcano(NoGlow)7.png" id="7_6c6s5"]
+[ext_resource type="Texture2D" uid="uid://cgciatpfafxas" path="res://art/Effects/volcano/Volcano(NoGlow)8.png" id="8_u547i"]
+[ext_resource type="Texture2D" uid="uid://xe4fjkc7w5hf" path="res://art/Effects/volcano/Volcano(NoGlow)9.png" id="9_qvg6e"]
+[ext_resource type="Texture2D" uid="uid://behbu7dg8dnhv" path="res://art/Effects/volcano/Volcano(NoGlow)10.png" id="10_ebao5"]
+[ext_resource type="Texture2D" uid="uid://pxb3dgajuckx" path="res://art/Effects/volcano/Volcano(NoGlow)11.png" id="11_emn3o"]
+[ext_resource type="Texture2D" uid="uid://vmtfewus0c8l" path="res://art/Effects/volcano/Volcano(NoGlow)12.png" id="12_f04m3"]
+[ext_resource type="Texture2D" uid="uid://cblnupf8mk30f" path="res://art/Effects/volcano/Volcano(NoGlow)13.png" id="13_h0lor"]
+[ext_resource type="Texture2D" uid="uid://b5hp82px8u3bq" path="res://art/Effects/volcano/Volcano(NoGlow)14.png" id="14_ee2f2"]
+[ext_resource type="Texture2D" uid="uid://marpik8pvf2e" path="res://art/Effects/volcano/Volcano(NoGlow)15.png" id="15_habb7"]
+[ext_resource type="Texture2D" uid="uid://pqmakok6cmpj" path="res://art/Effects/volcano/Volcano(NoGlow)16.png" id="16_6yxhi"]
+[ext_resource type="Texture2D" uid="uid://vojuo1b8igru" path="res://art/Effects/volcano/Volcano(NoGlow)17.png" id="17_t85vx"]
+[ext_resource type="Texture2D" uid="uid://dq48g1omhb0h2" path="res://art/Effects/volcano/Volcano(NoGlow)18.png" id="18_4tanj"]
+[ext_resource type="Texture2D" uid="uid://dponksafjo7x1" path="res://art/Effects/volcano/Volcano(NoGlow)19.png" id="19_n55dh"]
+[ext_resource type="Texture2D" uid="uid://cli8skfhqnyx7" path="res://art/Effects/volcano/Volcano(NoGlow)20.png" id="20_ka1uk"]
+[ext_resource type="Texture2D" uid="uid://hr1ifdpd6ic2" path="res://art/Effects/volcano/Volcano(NoGlow)21.png" id="21_07fxd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45dpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c7www")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p7tli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_grkbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q4ue8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1dmj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kc4ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6c6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u547i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qvg6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ebao5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_emn3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f04m3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h0lor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ee2f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_habb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6yxhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t85vx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4tanj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_n55dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ka1uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_07fxd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="Volcano" type="Node2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_45dpq")
+autoplay = "default"
+frame_progress = 0.832534

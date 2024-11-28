@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e8b1vd6yckes"]
+[gd_scene load_steps=15 format=3 uid="uid://e8b1vd6yckes"]
 
 [ext_resource type="Script" path="res://rooms/scripts/room_generation.gd" id="1_6kl5j"]
 [ext_resource type="Texture2D" uid="uid://5tccil120prm" path="res://dungeon/full tilemap.png" id="1_qgjdn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://delqnkvhl6im7" path="res://mobs/bat/bat.tscn" id="7_scejl"]
 [ext_resource type="PackedScene" uid="uid://cothk3axgmgct" path="res://scenes/Interni/torcia.tscn" id="8_al6kc"]
 [ext_resource type="PackedScene" uid="uid://cff332k1hhqf2" path="res://obj/crate1.tscn" id="9_nc8p8"]
+[ext_resource type="PackedScene" uid="uid://bf0iuaxy6a5uj" path="res://mobs/goblin/Goblin.tscn" id="10_slimt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_aj0yt"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -358,6 +359,12 @@ position = Vector2(5, -1)
 
 [node name="Crate" parent="." instance=ExtResource("9_nc8p8")]
 position = Vector2(54, -413)
+
+[node name="Slime2" parent="." instance=ExtResource("10_slimt")]
+position = Vector2(-19, -270)
+
+[node name="Slime3" parent="." instance=ExtResource("10_slimt")]
+position = Vector2(-27, -126)
 
 [editable path="Torcia2/Torcia2"]
 [editable path="Torcia2/Torcia3"]

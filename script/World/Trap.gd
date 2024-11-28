@@ -18,10 +18,12 @@ func disabled():
 	$hitBox/CollisionShape2D.disabled = true
 
 func _on_area_2d_body_entered(body):
-	enter = true
+	if body is Player:
+		enter = true
 
 func _on_area_2d_body_exited(body):
-	enter = false
+	if body is Player:
+		enter = false
 
 func randPitch():
 	$AudioStreamPlayer2D.pitch_scale = randf_range(.8, 1.2)

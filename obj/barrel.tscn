@@ -1,7 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bvwbds6pj1q4u"]
 
 [ext_resource type="Texture2D" uid="uid://b0yssedt0cdgn" path="res://dungeon/Objects and buildings/Barrels and crates/Animated/Barrel/Breaking/spr_barrel_breaking_outline.png" id="1_7fyys"]
-[ext_resource type="Script" path="res://obj/barrel.gd" id="1_r4t1r"]
 [ext_resource type="Texture2D" uid="uid://48cjmylwypm0" path="res://dungeon/Objects and buildings/Barrels and crates/Animated/Barrel/Particles/spr_broken_barrel_static.png" id="2_w2tdm"]
 [ext_resource type="Texture2D" uid="uid://c17u54hk21chg" path="res://dungeon/Objects and buildings/Barrels and crates/spr_barrel2.png" id="3_y7b71"]
 [ext_resource type="PackedScene" uid="uid://8mk0il1s3w4j" path="res://scenes/Box/New/hurt_box.tscn" id="4_gheby"]
@@ -102,7 +101,14 @@ height = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdy02"]
 radius = 6.0
 
+[sub_resource type="Curve" id="Curve_ohvfv"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_ewc0y"]
+curve = SubResource("Curve_ohvfv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tw2va"]
 particle_flag_disable_z = true
@@ -123,7 +129,6 @@ turbulence_initial_displacement_max = 42.0
 z_index = 2
 y_sort_enabled = true
 collision_mask = 0
-script = ExtResource("1_r4t1r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)

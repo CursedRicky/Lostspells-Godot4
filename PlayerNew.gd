@@ -41,7 +41,9 @@ signal lvlUp
 @export var gun : Gun
 @export var freezingDart : PackedScene
 @export var holyArrow : PackedScene
-
+@export var magicMissile : PackedScene
+@export var waveScene : PackedScene
+@export var voidTentacleScene : PackedScene
 
 func _ready():
 	spellInventory.use_spell.connect(use_spell)
@@ -256,6 +258,29 @@ func holyDart(mana):
 	if PlayerStats.mana >= mana:
 		_casting(mana)
 		gun.shoot()
+		
+func magicMissileSpell(mana):
+	gun.bullet = magicMissile
+	if PlayerStats.mana >= mana:
+		_casting(mana)
+		gun.shoot()
+		
+func waveSpell(mana):
+	gun.bullet = waveScene
+	if PlayerStats.mana >= mana:
+		_casting(mana)
+		gun.shoot()
 
 func walkBot():
 	$DestroyOnDeath/Sprite2D.play("Walk_Bot")
+	
+func voidTentacle(mana):
+	speed = 0
+	canMove = false
+	gun.bullet = voidTentacleScene
+	if PlayerStats.mana >= mana:
+		_casting(mana)
+		gun.shoot()
+	await get_tree().create_timer(1).timeout
+	speed = MAXSPEED
+	canMove = true

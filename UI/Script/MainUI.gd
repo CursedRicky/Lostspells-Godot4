@@ -35,3 +35,19 @@ func _on_comandi_mouse_exited():
 
 func _on_exit_mouse_exited():
 	$Sprite2D/CanvasLayer/Exit.scale = Vector2(1, 1)
+
+
+func _on_left_pressed():
+	if Global.selectorValue == 0:
+		Global.selectorValue = 11
+	else :
+		Global.selectorValue -= 1
+
+
+
+func _on_right_pressed():
+	if Global.selectorValue == 11:
+		Global.selectorValue = 0
+	else :
+		Global.selectorValue += 1
+

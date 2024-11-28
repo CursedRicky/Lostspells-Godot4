@@ -26,7 +26,7 @@ func _process(delta):
 		if PlayerStats.healt + 1 > PlayerStats.maxHealt:
 			PlayerStats.healt = PlayerStats.maxHealt
 		else :
-			PlayerStats.healt += 2 * delta
+			PlayerStats.healt += 1.5 * delta
 		player.healing()
 	healingPart.emitting = regen
 

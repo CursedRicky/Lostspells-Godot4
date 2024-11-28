@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://112bjerkalc8"]
+[gd_scene load_steps=40 format=3 uid="uid://112bjerkalc8"]
 
 [ext_resource type="Texture2D" uid="uid://5tccil120prm" path="res://dungeon/full tilemap.png" id="1_1pasr"]
 [ext_resource type="Script" path="res://rooms/scripts/startingRoom.gd" id="1_fvw37"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bvwbds6pj1q4u" path="res://obj/barrel.tscn" id="9_1lliw"]
 [ext_resource type="PackedScene" uid="uid://bxjsrqjijdhls" path="res://obj/web.tscn" id="10_ll7f1"]
 [ext_resource type="PackedScene" uid="uid://cff332k1hhqf2" path="res://obj/crate1.tscn" id="11_8ke8l"]
+[ext_resource type="PackedScene" uid="uid://dyudt2s3w38qn" path="res://obj/3skull.tscn" id="12_hgw6d"]
+[ext_resource type="AudioStream" uid="uid://buxlhahwypwy1" path="res://art/Music and Sounds/test.mp3" id="13_ov43y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stlld"]
 
@@ -387,6 +389,7 @@ polygon = PackedVector2Array(-75, 51, -75, 66, 5, 66, 5, 129, 10, 129, 8, 60, -7
 polygon = PackedVector2Array(-79, 128, -84, 128, -82, 57, -2, 57, -3, 49, 2, 49, 2, 63, -78, 65)
 
 [node name="StartingRoom" type="Node2D"]
+z_as_relative = false
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_stlld")
 script = ExtResource("1_fvw37")
@@ -490,6 +493,13 @@ flip_h = true
 
 [node name="Crate" parent="." instance=ExtResource("11_8ke8l")]
 position = Vector2(327, 76)
+
+[node name="Skull" parent="." instance=ExtResource("12_hgw6d")]
+position = Vector2(262, 27)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ov43y")
+volume_db = 1.0
 
 [editable path="Torcia2"]
 [editable path="Torcia3"]

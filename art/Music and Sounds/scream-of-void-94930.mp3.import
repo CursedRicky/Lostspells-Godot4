@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2f0gumxtkctc"
+path="res://.godot/imported/scream-of-void-94930.mp3-062c95250774dddd551a3926e8673b42.mp3str"
+
+[deps]
+
+source_file="res://art/Music and Sounds/scream-of-void-94930.mp3"
+dest_files=["res://.godot/imported/scream-of-void-94930.mp3-062c95250774dddd551a3926e8673b42.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bompnv4m7cng8"]
+
+[ext_resource type="Texture2D" uid="uid://bm4mjyqm73obj" path="res://art/Effects/Particle/Halloween VFX 4.png" id="1_505cc"]
+[ext_resource type="Script" path="res://mobs/bloodVFX.gd" id="2_48nwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddb0t"]
+atlas = ExtResource("1_505cc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8du4y"]
+atlas = ExtResource("1_505cc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkn5b"]
+atlas = ExtResource("1_505cc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owuwb"]
+atlas = ExtResource("1_505cc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0nwe"]
+atlas = ExtResource("1_505cc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsg4b"]
+atlas = ExtResource("1_505cc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uximg"]
+atlas = ExtResource("1_505cc")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1a8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddb0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8du4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkn5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owuwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0nwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsg4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uximg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q1a8m")
+autoplay = "default"
+frame_progress = 0.460788
+script = ExtResource("2_48nwt")

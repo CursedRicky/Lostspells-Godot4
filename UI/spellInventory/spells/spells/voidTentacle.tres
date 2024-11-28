@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5l3fe4m6kfbp"]
+
+[ext_resource type="Script" path="res://spellsEffects/voidTenctacle.gd" id="1_5qf2a"]
+[ext_resource type="Texture2D" uid="uid://clliv1ete14ug" path="res://UI/spellInventory/spells/spellsIcon/voidTentacle.png" id="2_1h1b4"]
+
+[resource]
+script = ExtResource("1_5qf2a")
+name = "void tentacle"
+damageDescription = "base damage: 40"
+buff0 = "channeling"
+buff1 = "multiple hits"
+texture = ExtResource("2_1h1b4")
+cd = 20
+rarity = 2
+manaCost = 20
+healtCost = 5
+isAHealing = false

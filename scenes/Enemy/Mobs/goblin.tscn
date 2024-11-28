@@ -261,8 +261,8 @@ scale_curve = SubResource("CurveTexture_76uvy")
 
 [node name="Goblin" type="CharacterBody2D"]
 process_mode = 1
-collision_layer = 514
-collision_mask = 513
+collision_layer = 67109378
+collision_mask = 67109377
 script = ExtResource("1_us0cs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

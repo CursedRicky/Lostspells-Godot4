@@ -83,8 +83,11 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_62jdg")
 animation = &"Animate"
+frame = 9
+frame_progress = 1.0
 offset = Vector2(0, -8)
 script = ExtResource("2_gvg0h")
 
